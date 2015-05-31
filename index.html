@@ -25,7 +25,11 @@
     </form>
     <pre>form = {{painting | json}}</pre>
     <pre>master = {{master | json}}</pre>
-    <div style="height: 25px; width: 25px; border: black 1px solid; border-radius: 50%; margin: 10px" ng-repeat="n in [] | range: painting.rows"></div>
+
+    <section style="text-align: center; display: block;" ng-repeat="n in [] | range: painting.rows">
+      <div style="height: 25px; width: 25px; border: black 1px solid; border-radius: 50%; margin: 10px; display: inline-block;" ng-repeat="n in [] | range: painting.columns"></div>
+    </section>
+
   </div>
 </body>
 </html>
