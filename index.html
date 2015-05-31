@@ -13,7 +13,15 @@
 </head>
 <body ng-app="spotPaintingApp">
   <div ng-controller="MainCtrl">
-    {{ test }}
+    <form novalidate class="simple-form">
+      Rows: <input type="text" ng-model="painting.rows" /><br />
+      Columns: <input type="text" ng-model="painting.columns" /><br />
+      <input type="button" ng-click="reset()" value="Reset" />
+      <input type="submit" ng-click="update(painting)" value="Save" />
+    </form>
+    <pre>form = {{painting | json}}</pre>
+    <pre>master = {{master | json}}</pre>
+
   </div>
 </body>
 </html>
