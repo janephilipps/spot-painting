@@ -4,6 +4,8 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.master = {};
 
+    $scope.painting = { colors: {} };
+
     $scope.update = function (painting) {
       $scope.master = angular.copy(painting);
     };
@@ -14,4 +16,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.reset();
 
-  }]);
+  }])
+
+  .filter('range', function () {
+    return function (input, total) {
+      total = parseInt(total);
+      for (var i = 0; i < total; i++) {
+        input.push(i);
+      }
+      return input;
+    };
+  });

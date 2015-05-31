@@ -17,13 +17,14 @@
     <form novalidate class="simple-form">
       Rows: <input type="number" min="3" max="10" ng-model="painting.rows" /><br />
       Columns: <input type="number" min="3" max="10" ng-model="painting.columns" /><br />
-      Color: <input type="color" ng-model="painting.color_one"><br />
+      <div ng-repeat="n in [] | range: 9">
+        Color {{n + 1}}:<input type="color" ng-model="painting.colors[n]"><br />
+      </div>
       <input type="button" ng-click="reset()" value="Reset" />
       <input type="submit" ng-click="update(painting)" value="Save" />
     </form>
     <pre>form = {{painting | json}}</pre>
     <pre>master = {{master | json}}</pre>
-
   </div>
 </body>
 </html>
