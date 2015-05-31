@@ -6,6 +6,8 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.painting = { colors: {} };
 
+    $scope.constants = { numberOfColors: 9 };
+
     $scope.update = function (painting) {
       $scope.master = angular.copy(painting);
     };
