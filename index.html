@@ -14,8 +14,8 @@
 <body ng-app="spotPaintingApp">
   <div ng-controller="MainCtrl">
     <form novalidate class="simple-form">
-      Rows: <input type="text" ng-model="painting.rows" /><br />
-      Columns: <input type="text" ng-model="painting.columns" /><br />
+      Rows: <input type="number" min="3" max="10" ng-model="painting.rows" /><br />
+      Columns: <input type="number" min="3" max="10" ng-model="painting.columns" /><br />
       <input type="button" ng-click="reset()" value="Reset" />
       <input type="submit" ng-click="update(painting)" value="Save" />
     </form>
