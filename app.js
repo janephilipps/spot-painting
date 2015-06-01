@@ -7,7 +7,8 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.painting = {
       rows: 3,
       columns: 3,
-      colors: {}
+      colors: {},
+      painting: []
     };
 
     $scope.constants = {
@@ -24,8 +25,23 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting = angular.copy($scope.master);
     };
 
+    $scope.fill = function (length, value) {
+      $scope.painting.painting = [];
+      for (var i = 0; i < length; i++) {
+        $scope.painting.painting.push(value);
+      }
+
+      return $scope.painting.painting;
+    }
+
     $scope.generate = function () {
-      // $scope.getRandomColor();
+
+      $scope.painting.painting.length = $scope.painting.rows * $scope.painting.columns;
+
+      console.log($scope.painting.painting.length);
+
+      $scope.fill($scope.painting.painting.length, $scope.painting.colors[0]);
+
     };
 
     $scope.getRandomColor = function () {
