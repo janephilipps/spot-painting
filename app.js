@@ -24,16 +24,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting = angular.copy($scope.master);
     };
 
-    $scope.reset();
-
     $scope.generate = function () {
-      getRandomColor();
-    }
+      // $scope.getRandomColor();
+    };
 
     $scope.getRandomColor = function () {
-      return $scope.painting.colors[Math.floor(Math.random() * $scope.constants.numberOfColors())];
-
-    }
+      var colorIndex = Math.floor(Math.random() * $scope.constants.numberOfColors());
+      return $scope.painting.colors[colorIndex];
+    };
 
   }])
 
