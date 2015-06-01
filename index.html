@@ -17,7 +17,7 @@
     <form novalidate class="simple-form">
       Rows: <input type="number" min="3" max="10" ng-model="painting.rows" /><br />
       Columns: <input type="number" min="3" max="10" ng-model="painting.columns" /><br />
-      <div ng-repeat="n in [] | range: constants.numberOfColors">
+      <div ng-repeat="n in [] | range: constants.numberOfColors()">
         Color {{n + 1}}:<input type="color" ng-model="painting.colors[n]"><br />
       </div>
       <input type="button" ng-click="reset()" value="Reset" />
@@ -26,8 +26,8 @@
     <pre>form = {{painting | json}}</pre>
     <pre>master = {{master | json}}</pre>
 
-    <section style="text-align: center; display: block;" ng-repeat="n in [] | range: painting.rows">
-      <div style="height: 25px; width: 25px; border: black 1px solid; border-radius: 50%; margin: 10px; display: inline-block;" ng-repeat="n in [] | range: painting.columns"></div>
+    <section style="text-align: center; display: block;" ng-repeat="row in [] | range: painting.rows">
+      <div style="height: 25px; width: 25px; border-radius: 50%; margin: 10px; display: inline-block; background-color: {{ getRandomColor() }};" ng-repeat="col in [] | range: painting.columns"></div>
     </section>
 
   </div>

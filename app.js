@@ -4,9 +4,17 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.master = {};
 
-    $scope.painting = { colors: {} };
+    $scope.painting = {
+      rows: 3,
+      columns: 3,
+      colors: {}
+    };
 
-    $scope.constants = { numberOfColors: 9 };
+    $scope.constants = {
+      numberOfColors: function () {
+        return $scope.painting.rows;
+      }
+    };
 
     $scope.update = function (painting) {
       $scope.master = angular.copy(painting);
@@ -18,6 +26,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.reset();
 
+    $scope.getRandomColor = function () {
+      console.log($scope.painting.colors[Math.floor(Math.random() * $scope.constants.numberOfColors())]);
+      return $scope.painting.colors[Math.floor(Math.random() * $scope.constants.numberOfColors())];
+      // return $scope.painting.colors[0];
+      // return Math.random($scope.painting.colors);
+      // return "#2561d8";
+    }
+
   }])
 
   .filter('range', function () {
@@ -28,4 +44,4 @@ angular.module('spotPaintingApp', ['ngRoute'])
       }
       return input;
     };
-  });
+  })
