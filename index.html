@@ -26,15 +26,17 @@
         Color {{n + 1}}:<input type="color" ng-model="painting.colors[n]"><br />
       </div>
       <input type="button" ng-click="reset()" value="Reset" />
-      <input type="button" ng-click="generate()" value="Generate" />
+      <input type="button" ng-click="fillRandom()" value="Generate" />
       <input type="submit" ng-click="update(painting)" value="Save" />
     </form>
     <pre>form = {{ painting | json }}</pre>
     <pre>master = {{ master | json }}</pre>
 
-    <section style="text-align: center; display: block;" ng-repeat="row in [] | range: painting.rows">
+    <!-- <section style="text-align: center; display: block;" ng-repeat="row in [] | range: painting.rows">
       <div style="height: 25px; width: 25px; border-radius: 50%; margin: 10px; display: inline-block; background-color: {{ getRandomColor() }};" ng-repeat="col in [] | range: painting.columns"></div>
-    </section>
+    </section> -->
+
+    <div ng-repeat="color in painting.painting track by $index" style="height: 25px; width: 25px; border-radius: 50%; margin: 10px; display: inline-block; background-color: {{ color }} ;">&nbsp;</div>
 
   </div>
 </body>
