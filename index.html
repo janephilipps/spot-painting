@@ -21,6 +21,7 @@
         Color {{n + 1}}:<input type="color" ng-model="painting.colors[n]"><br />
       </div>
       <input type="button" ng-click="reset()" value="Reset" />
+      <input type="button" ng-click="generate()" value="Generate" />
       <input type="submit" ng-click="update(painting)" value="Save" />
     </form>
     <pre>form = {{painting | json}}</pre>

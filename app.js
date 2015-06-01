@@ -26,6 +26,10 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.reset();
 
+    $scope.generate = function () {
+      getRandomColor();
+    }
+
     $scope.getRandomColor = function () {
       console.log($scope.painting.colors[Math.floor(Math.random() * $scope.constants.numberOfColors())]);
       return $scope.painting.colors[Math.floor(Math.random() * $scope.constants.numberOfColors())];
