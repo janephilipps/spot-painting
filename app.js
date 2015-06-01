@@ -25,14 +25,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting = angular.copy($scope.master);
     };
 
-    $scope.fill = function (length, value) {
-      $scope.painting.painting = [];
-      for (var i = 0; i < length; i++) {
-        $scope.painting.painting.push(value);
-      }
-
-      return $scope.painting.painting;
-    }
 
     $scope.fillRandom = function () {
       var colors = $scope.painting.colors;
@@ -48,35 +40,20 @@ angular.module('spotPaintingApp', ['ngRoute'])
           array = [];
 
       // Tell that array what it's length should be
-      array.length = r * c;
+      // array.length = r * c;
 
-      // Then fill the array
-      for (var i = 0; i < array.length; i++) {
+
+      for (var i = 0; i < r; i++) {
+        array.push([]);
+        for (var j = 0; j < c; j++) {
           var rand = Math.floor(Math.random() * arrColors.length);
-          array[i] = arrColors[rand];
+          array[i].push(arrColors[rand]);
+        }
       }
 
-      // Then return the array
+      // Then save the array
       $scope.painting.painting = array;
     }
-
-
-    $scope.generate = function () {
-
-      $scope.painting.painting.length = $scope.painting.rows * $scope.painting.columns;
-
-      console.log($scope.painting.painting.length);
-
-      $scope.fill($scope.painting.painting.length, $scope.painting.colors[0]);
-
-      // $scope.fillRandom($scope.painting.painting);
-
-    };
-
-    $scope.getRandomColor = function () {
-      var colorIndex = Math.floor(Math.random() * $scope.constants.numberOfColors());
-      return $scope.painting.colors[colorIndex];
-    };
 
   }])
 
