@@ -25,7 +25,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting = angular.copy($scope.master);
     };
 
-
     $scope.fillRandom = function () {
       var colors = $scope.painting.colors;
       var arrColors = [];
@@ -38,10 +37,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       var r = $scope.painting.rows,
           c = $scope.painting.columns,
           array = [];
-
-      // Tell that array what it's length should be
-      // array.length = r * c;
-
 
       for (var i = 0; i < r; i++) {
         array.push([]);
