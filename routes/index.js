@@ -23,9 +23,18 @@ var Painting = require('../models/painting');
       });
     });
 
+
+    // Route to save painting to DB
+    app.post('/api/paintings', function (req, res) {
+      // console.log(req.body);
+      Painting.create(req.body, function (err, painting) {
+        console.log(painting);
+      });
+    });
+
     // route to handle creating goes here (app.post)
     // route to handle all angular requests
     app.get('*', function (req, res) {
-      res.sendFile('./public/views/index.html');
+      res.sendfile('./public/views/index.html');
     });
   };

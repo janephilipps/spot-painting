@@ -1,6 +1,6 @@
 angular.module('spotPaintingApp', ['ngRoute'])
 
-  .controller("MainCtrl", ['$scope', function ($scope) {
+  .controller("MainCtrl", ['$scope', '$http', function ($scope, $http) {
 
     $scope.master = {};
 
@@ -24,6 +24,17 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.reset = function () {
       $scope.painting = angular.copy($scope.master);
     };
+
+    $scope.createPainting = function () {
+      console.log($scope.painting);
+      $http.post('/api/paintings', $scope.painting)
+        .success(function (data) {
+          console.log(data);  
+        })
+        .error(function (data) {
+          console.log(data);
+        })
+    }
 
     $scope.fillRandom = function () {
       var colors = $scope.painting.colors;

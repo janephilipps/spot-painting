@@ -3,7 +3,7 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/paintings');
+mongoose.connect('mongodb://localhost/test');
 // Require routes
 var routes = require('./routes/index');
 
