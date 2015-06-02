@@ -8,7 +8,7 @@ var Painting = require('./models/painting');
     // authentication routes
 
     // sample api route
-    app.get('/api/nerds', function (req, res) {
+    app.get('/api/paintings', function (req, res) {
       // use mongoose to get all paintings in the database
       Painting.find(function(err, paintings) {
 
@@ -26,6 +26,6 @@ var Painting = require('./models/painting');
     // route to handle creating goes here (app.post)
     // route to handle all angular requests
     app.get('*', function (req, res) {
-      res.sendfile('./public/views.index.html');
+      res.sendfile('./public/views/index.html');
     });
   };

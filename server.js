@@ -9,6 +9,9 @@ var app = express();
 // Config files
 var db = require('./config/db');
 
+// Require routes
+var routes = require('./routes');
+
 // Set port
 var port = process.env.PORT || 3000;
 
