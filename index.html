@@ -21,7 +21,7 @@
   <div ng-controller="MainCtrl">
     <form novalidate class="simple-form">
       Rows: <input type="number" min="3" max="100" ng-model="painting.rows" /><br />
-      Columns: <input type="number" min="3" max="100" ng-model="painting.columns" /><br />
+      Columns: <input type="number" min="3" max="35" ng-model="painting.columns" /><br />
       <div ng-repeat="n in [] | range: constants.numberOfColors()">
         Color {{n + 1}}:<input type="color" ng-model="painting.colors[n]"><br />
       </div>
