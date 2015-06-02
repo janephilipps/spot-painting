@@ -1,0 +1,31 @@
+// Grab painting model
+var Painting = require('./models/painting');
+
+  module.exports = function (app) {
+
+    // server routes
+    // handle things like api calls
+    // authentication routes
+
+    // sample api route
+    app.get('/api/nerds', function (req, res) {
+      // use mongoose to get all paintings in the database
+      Painting.find(function(err, paintings) {
+
+        // if there is an error retrieving, send the error.
+        // nothing after res.send(err) will execute
+
+        if (err) {
+          res.send(err);
+        }
+        res.json(paintings); // return all paintings in JSON format
+
+      });
+    });
+
+    // route to handle creating goes here (app.post)
+    // route to handle all angular requests
+    app.get('*', function (req, res) {
+      res.sendfile('./public/views.index.html');
+    });
+  };
