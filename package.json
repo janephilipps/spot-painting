@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/janephilipps/spot_painting_app",
   "dependencies": {
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "mongodb": "^2.0.33"
   }
 }
