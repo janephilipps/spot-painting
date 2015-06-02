@@ -1,28 +1,48 @@
 // Require modules
 var express = require("express");
-var MongoClient = require('mongodb').MongoClient;
-var assert = require('assert');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 // Instantiate express app
 var app = express();
 
-// Set up MongoDB
-var url = 'mongodb://localhost:27017/test';
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected correctly to server.");
-  db.close();
-});
+// Config files
+var db = require('./config/db');
 
-// Route to site index
-app.get('/', function (req, res) {
-  res.render('index');
-});
+// Set port
+var port = process.env.PORT || 3000;
 
+// Connect to mongoDB database
+// (uncomment after you enter in your own credentials in config/db.js)
+// mongoose.connect(db.url);
 
-// Start the server
-var server = app.listen(process.env.PORT || 3000, function() {
-  console.log(new Array(51).join("*"));
-  console.log("\t LISTENING ON: \n\t\t localhost:3000");
-  console.log(new Array(51).join("*"));
- });
+// MIDDLEWARE
+
+// Get all data/stuff of the body (POST) parameters
+// Parse application/json
+app.use(bodyParser.json());
+
+// Parse appication/vnd.api+json as json
+app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+
+// Parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Override with the X-HTTP-Method-Override header in the request. Simulate DELETE/PUT
+app.use(methodOverride('X-HTTP-Method-Override'));
+
+// Set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/public'));
+
+// Routes
+require('./app/routes')(app); // configure our routes
+
+// Start app
+// Startup our app at http://localhost:3000
+app.listen(port);
+
+// Shoutout to the user
+console.log('Magic happens on port ' + port);
+
+// Expose app
+exports = module.exports = app;
