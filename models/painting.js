@@ -7,5 +7,5 @@ module.exports = mongoose.model('Painting', {
   rows : Number,
   columns : Number,
   colors : { type: [String], index: true },
-  // painting : [ type: String ]
+  painting : { type: [[String]] }
 });

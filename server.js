@@ -2,6 +2,10 @@
 var express = require("express");
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/paintings');
+// Require routes
+var routes = require('./routes/index');
 
 // Instantiate express app
 var app = express();
@@ -9,8 +13,7 @@ var app = express();
 // Config files
 var db = require('./config/db');
 
-// Require routes
-var routes = require('./routes');
+
 
 // Set port
 var port = process.env.PORT || 3000;
@@ -38,7 +41,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 
 // Routes
-require('./app/routes')(app); // configure our routes
+require('./routes')(app); // configure our routes
 
 // Start app
 // Startup our app at http://localhost:3000

@@ -1,5 +1,5 @@
 // Grab painting model
-var Painting = require('./models/painting');
+var Painting = require('../models/painting');
 
   module.exports = function (app) {
 
@@ -26,6 +26,6 @@ var Painting = require('./models/painting');
     // route to handle creating goes here (app.post)
     // route to handle all angular requests
     app.get('*', function (req, res) {
-      res.sendfile('./public/views/index.html');
+      res.sendFile('./public/views/index.html');
     });
   };
