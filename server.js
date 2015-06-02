@@ -14,6 +14,12 @@ MongoClient.connect(url, function(err, db) {
   db.close();
 });
 
+// Route to site index
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+
 // Start the server
 var server = app.listen(process.env.PORT || 3000, function() {
   console.log(new Array(51).join("*"));
