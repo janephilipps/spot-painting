@@ -29,7 +29,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
       console.log($scope.painting);
       $http.post('/api/paintings', $scope.painting)
         .success(function (data) {
-          console.log(data);  
+          console.log(data);
         })
         .error(function (data) {
           console.log(data);
