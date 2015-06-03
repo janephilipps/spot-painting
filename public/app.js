@@ -35,7 +35,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
         .error(function (data) {
           console.log(data);
         })
-    }
+    };
 
     $scope.fillRandom = function () {
       var colors = $scope.painting.colors;
@@ -60,7 +60,17 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
       // Then save the array
       $scope.painting.painting = array;
-    }
+    };
+
+    $scope.showGallery = function () {
+      $http.get('/paintings', $scope.painting)
+        .success(function (data) {
+          console.log(data);
+        })
+        .error(function (data) {
+          console.log(data);
+        })
+    };
 
   }])
 

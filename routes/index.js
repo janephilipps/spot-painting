@@ -32,6 +32,12 @@ var Painting = require('../models/painting');
       });
     });
 
+    // Route to gallery
+    app.get('/paintings', function (req, res) {
+      console.log('I made it!');
+      Painting.find();
+    });
+
     // route to handle creating goes here (app.post)
     // route to handle all angular requests
     app.get('*', function (req, res) {
