@@ -8,6 +8,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
       rows: 3,
       columns: 3,
       colors: {},
+      title: '',
       painting: []
     };
 
