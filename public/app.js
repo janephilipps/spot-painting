@@ -62,20 +62,20 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting.painting = array;
     };
 
-    $scope.showGallery = function () {
-      $http.get('/paintings', $scope.painting)
+  }])
+
+  .controller("PaintingCtrl", ['$scope', '$http', function ($scope, $http) {
+
+     // $scope.showGallery = function () {
+      $http.get('/paintings')
         .success(function (data) {
           console.log(data);
-          JSON.parse(data);
+          $scope.paintings = data;
         })
         .error(function (data) {
           console.log(data);
         })
-    };
-
-  }])
-
-  .controller("PaintingCtrl", ['$scope', '$http', function ($scope, $http) {
+   // };
 
   }])
 
@@ -91,8 +91,12 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   .config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
       $routeProvider
+        .when("/", {
+          templateUrl: 'views/index.html',
+          controller: 'MainCtrl'
+        })
         .when("/paintings", {
-          templateUrl: '/views/index.html',
+          templateUrl: '/views/paintings.html',
           controller: 'PaintingCtrl'
         });
 
