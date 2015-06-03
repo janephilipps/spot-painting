@@ -67,12 +67,12 @@ angular.module('spotPaintingApp', ['ngRoute'])
   .controller("PaintingCtrl", ['$scope', '$http', function ($scope, $http) {
 
       $http.get('/paintings')
-        .success(function (data) {
-          console.log(data);
-          $scope.paintings = data;
+        .success(function (paintings) {
+          console.log(paintings);
+          $scope.paintings = paintings;
         })
-        .error(function (data) {
-          console.log(data);
+        .error(function (paintings) {
+          console.log(paintings);
         })
 
   }])
