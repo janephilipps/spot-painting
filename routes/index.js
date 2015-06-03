@@ -35,7 +35,11 @@ var Painting = require('../models/painting');
     // Route to gallery
     app.get('/paintings', function (req, res) {
       console.log('I made it!');
-      Painting.find();
+      Painting.find()
+      .then(function (paintings) {
+        console.log(paintings);
+        res.json(paintings);
+      })
     });
 
     // route to handle creating goes here (app.post)

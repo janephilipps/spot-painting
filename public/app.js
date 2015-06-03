@@ -66,11 +66,16 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $http.get('/paintings', $scope.painting)
         .success(function (data) {
           console.log(data);
+          JSON.parse(data);
         })
         .error(function (data) {
           console.log(data);
         })
     };
+
+  }])
+
+  .controller("PaintingCtrl", ['$scope', '$http', function ($scope, $http) {
 
   }])
 
@@ -83,3 +88,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
       return input;
     };
   })
+
+  .config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
+      $routeProvider
+        .when("/paintings", {
+          templateUrl: '/views/index.html',
+          controller: 'PaintingCtrl'
+        });
+
+      $locationProvider.html5Mode(true);
+  }]);
+
