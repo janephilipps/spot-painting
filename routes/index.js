@@ -37,6 +37,12 @@ var Painting = require('../models/painting');
       console.log('I made it!');
       Painting.find()
       .then(function (paintings) {
+        // Paintings are saved in DB weirdly, so we need to do this to fix them and make accessible
+        paintings.forEach(function(painting){
+          painting.painting.forEach(function(colorStr,id,arr){
+            arr[id] = colorStr.split(",");
+          });
+        });
         console.log(paintings);
         res.json(paintings);
       })

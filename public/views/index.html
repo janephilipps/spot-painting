@@ -10,6 +10,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
   <script type="text/javascript" src="jscolor/jscolor.js"></script>
   <script src="app.js"></script>
+  <base href="/">
+
   <style>
     html {
       font-family: sans-serif;
@@ -39,18 +41,9 @@
       </div>
     </div>
 
-    <a href="/paintings" ng-click="showGallery()">Gallery</a>
+    <a href="/paintings">Gallery</a>
 
-  </div>
-
-
-
-  <div ng-controller="PaintingCtrl">
-  hello
-    <div ng-repeat="painting in paintings">
-      {{ painting.title }}
-    </div>
-  </div>
+    <div ng-view></div>
   </div>
 </body>
 </html>
