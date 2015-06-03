@@ -1,0 +1,18 @@
+.simple-form {
+  text-align: center;
+  margin: 25px;
+  padding: 5px;
+  background-color: white;
+  opacity: .25;
+  position: absolute;
+  z-index: 100;
+}
+
+.field {
+  margin: 3px;
+}
+
+.painting {
+  position: absolute;
+  z-index: -100;
+}
