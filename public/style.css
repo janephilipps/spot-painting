@@ -10,6 +10,7 @@
   background: rgba(255,255,255,.75);
   position: fixed;
   z-index: 100;
+  border-radius: 5%;
 }
 
 .field {

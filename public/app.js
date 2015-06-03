@@ -5,8 +5,8 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.master = {};
 
     $scope.painting = {
-      rows: 3,
-      columns: 3,
+      rows: 15,
+      columns: 25,
       colors: {},
       title: '',
       painting: []
