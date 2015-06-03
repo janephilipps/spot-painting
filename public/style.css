@@ -1,10 +1,14 @@
+.center {
+  text-align: center;
+  width: 100%;
+}
+
 .simple-form {
   text-align: center;
   margin: 25px;
   padding: 5px;
-  background-color: white;
-  opacity: .25;
-  position: absolute;
+  background: rgba(255,255,255,.75);
+  position: fixed;
   z-index: 100;
 }
 
@@ -13,6 +17,6 @@
 }
 
 .painting {
-  position: absolute;
+  position: fixed;
   z-index: -100;
 }
