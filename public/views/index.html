@@ -16,9 +16,6 @@
 </head>
 <body ng-app="spotPaintingApp">
 
-  <div class="container">
-    <div class="page-wrap">
-
       <!-- FACEBOOK SHARE BUTTON FUNCTIONALITY -->
       <div id="fb-root"></div>
       <script>
@@ -33,14 +30,40 @@
 
       <header ng-controller="HeaderCtrl"></header>
 
+      <header>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#/home">Spot Painting</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+              <li><a href="#/about">About</a></li>
+              <li><a href="#/create">Create</a></li>
+              <li><a href="#/paintings">Gallery</a></li>
+              <li><a href="#/contact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
       <br>
 
-      <div ng-view></div>
+      <div class="container">
+        <div class="page-wrap">
 
-    </div>
+          <div ng-view></div>
+        </div>
+      </div>
 
-    <footer ng-controller="FooterCtrl"></footer>
+    <!-- <footer ng-controller="FooterCtrl"></footer> -->
 
-  </div>
+    <footer class="site-footer">
+      <br />
+      <p class="text-center text-muted">Created by <a href="#">Jane Philipps</a></p>
+      <br />
+    </footer>
+
 </body>
 </html>
