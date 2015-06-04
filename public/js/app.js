@@ -122,6 +122,20 @@ angular.module('spotPaintingApp', ['ngRoute'])
     };
   })
 
+  .directive('appHeader', function() {
+    return {
+      templateUrl: 'views/layouts/header.html',
+      controller: 'HeaderCtrl'
+    };
+  })
+
+  .directive('appFooter', function() {
+    return {
+      templateUrl: 'views/layouts/footer.html',
+      controller: 'FooterCtrl'
+    };
+  })
+
   .config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
       $routeProvider
         // .when("/", {
