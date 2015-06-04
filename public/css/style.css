@@ -2,6 +2,10 @@ html {
   font-family: Futura, sans-serif;
 }
 
+body {
+  font-family: Futura, sans-serif;
+}
+
 .center {
   text-align: center;
   width: 100%;
@@ -24,4 +28,37 @@ html {
 .painting {
   position: fixed;
   z-index: -100;
+}
+
+.page-wrap {
+  min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+footer, .page-wrap:after {
+  height: 142px;
+}
+
+header {
+  background-color: yellow;
+}
+
+footer {
+  background-color: cyan;
+  color: white;
+}
+
+a {
+  color: magenta;
+}
+
+a:hover {
+  color: yellow;
+  text-decoration: none;
 }
