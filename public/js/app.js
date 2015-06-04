@@ -8,6 +8,10 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   }])
 
+  .controller("ContactCtrl", ['$scope', '$http', function ($scope, $http) {
+
+  }])
+
   .controller("HeaderCtrl", ['$scope', '$http', function ($scope, $http) {
 
   }])
@@ -131,6 +135,10 @@ angular.module('spotPaintingApp', ['ngRoute'])
         .when("/about", {
           templateUrl: 'views/about.html',
           controller: 'AboutCtrl'
+        })
+        .when("/contact", {
+          templateUrl: 'views/contact.html',
+          controller: 'ContactCtrl'
         })
         .when("/create", {
           templateUrl: '/views/create.html',

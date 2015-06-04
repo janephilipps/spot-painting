@@ -66,3 +66,7 @@ a:hover {
   color: yellow;
   text-decoration: none;
 }
+
+.contact {
+  display: block;
+}
