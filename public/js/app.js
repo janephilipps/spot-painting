@@ -8,6 +8,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   }])
 
+  .controller("HeaderCtrl", ['$scope', '$http', function ($scope, $http) {
+
+  }])
+
+  .controller("FooterCtrl", ['$scope', '$http', function ($scope, $http) {
+
+  }])
+
   .controller("CreateCtrl", ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
     $scope.master = {};

@@ -1,21 +1,26 @@
-<div class="center">
-  <form novalidate class="simple-form">
-    Rows: <input class="field" type="number" min="3" max="30" ng-model="painting.rows" /><br />
-    Columns: <input class="field" type="number" min="3" max="30" ng-model="painting.columns" /><br />
-    <div ng-repeat="n in [] | range: constants.numberOfColors()">
-      Color {{n + 1}}:<input class="field color" type="color" ng-model="painting.colors[n]">
-    </div>
-    <input class="field" type="string" placeholder="Title Your Work" ng-model="painting.title" /><br />
-    <input type="button" ng-click="reset()" value="Reset" />
-    <input class="field" type="button" ng-click="fillRandom()" value="Generate" />
-    <input class="field" type="submit" ng-click="createPainting()" value="Save" />
-  </form>
-    <!-- <pre>form = {{ painting | json }}</pre>
-    <pre>master = {{ master | json }}</pre> -->
+<div class="page-wrap">
+  <div class="container">
 
-  <div class="painting">
-    <div  ng-repeat="colorArray in painting.painting track by $index" style="text-align: center; display: block;">
-      <div ng-repeat="color in colorArray track by $index" style="height: 25px; width: 25px; border-radius: 50%; margin: 10px; display: inline-block; background-color: {{ color }} ;">&nbsp;</div>
+    <div class="center">
+      <form novalidate class="simple-form">
+        Rows: <input class="field" type="number" min="3" max="30" ng-model="painting.rows" /><br />
+        Columns: <input class="field" type="number" min="3" max="30" ng-model="painting.columns" /><br />
+        <div ng-repeat="n in [] | range: constants.numberOfColors()">
+          Color {{n + 1}}:<input class="field color" type="color" ng-model="painting.colors[n]">
+        </div>
+        <input class="field" type="string" placeholder="Title Your Work" ng-model="painting.title" /><br />
+        <input type="button" ng-click="reset()" value="Reset" />
+        <input class="field" type="button" ng-click="fillRandom()" value="Generate" />
+        <input class="field" type="submit" ng-click="createPainting()" value="Save" />
+      </form>
+        <!-- <pre>form = {{ painting | json }}</pre>
+        <pre>master = {{ master | json }}</pre> -->
+
+      <div class="painting">
+        <div  ng-repeat="colorArray in painting.painting track by $index" style="text-align: center; display: block;">
+          <div ng-repeat="color in colorArray track by $index" style="height: 25px; width: 25px; border-radius: 50%; margin: 10px; display: inline-block; background-color: {{ color }} ;">&nbsp;</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -15,57 +15,32 @@
 
 </head>
 <body ng-app="spotPaintingApp">
-  <!-- FACEBOOK SHARE BUTTON FUNCTIONALITY -->
-  <div id="fb-root"></div>
-  <script>
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <!-- <ng-include src="'./partials/header.html'"></ng-include> -->
-<!-- <header>
-  <ng-include
-  src="'./partials/header.html'">
-  </ng-include>
-</header> -->
 
-  <header>
-  <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+  <div class="container">
+    <div class="page-wrap">
 
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/home">Spot Painting</a>
+      <!-- FACEBOOK SHARE BUTTON FUNCTIONALITY -->
+      <div id="fb-root"></div>
+      <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <header ng-controller="HeaderCtrl"></header>
+
+      <br>
+
+      <div ng-view></div>
+
     </div>
 
-    <ul class="nav navbar-nav">
-      <li><a href="#/about">About</a></li>
-      <li><a href="#/create">Create</a></li>
-      <li><a href="#/paintings">Gallery</a></li>
-    </ul>
-  </div>
-</nav>
-    
-  </header>
+    <footer ng-controller="FooterCtrl"></footer>
 
-  <br>
-
-  <!-- <h1>Welcome!</h1>
-  <p>Spot Painting is a simple web app that lets you create spot paintings and share them with your friends. Ready to create your own? Get started <a href="#/create">here</a>!</p>
-  <p>Why spot paintings? Check out the <a href="#/about">about</a> page.</p> -->
-  <div ng-view></div>
   </div>
-  <!-- <footer>
-    <ng-include src="'./partials/footer.html'"></ng-include>
-  </footer> -->
-  
-  <footer>
-    <br />
-    <p class="text-center text-muted">Created by <a href="#">Jane Philipps</a></p>
-    <br />
-  </footer>
 </body>
 </html>

@@ -1,5 +1,9 @@
-html {
-  font-family: Futura, sans-serif;
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
@@ -41,7 +45,7 @@ body {
   display: block;
 }
 
-footer, .page-wrap:after {
+.site-footer, .page-wrap:after {
   height: 142px;
 }
 
@@ -49,7 +53,7 @@ header {
   background-color: yellow;
 }
 
-footer {
+.site-footer {
   background-color: cyan;
   color: white;
 }
