@@ -3,17 +3,14 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+var env = process.env;
+console.log(env.MONGOLAB_URI);
+mongoose.connect(env.MONGOLAB_URI);
 // Require routes
 var routes = require('./routes/index');
 
 // Instantiate express app
 var app = express();
-
-// Config files
-var db = require('./config/db');
-
-
 
 // Set port
 var port = process.env.PORT || 3000;
