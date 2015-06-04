@@ -29,6 +29,7 @@ var Painting = require('../models/painting');
       // console.log(req.body);
       Painting.create(req.body, function (err, painting) {
         console.log(painting);
+        res.json(painting._id);
       });
     });
 

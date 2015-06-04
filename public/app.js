@@ -4,7 +4,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   }])
 
-  .controller("CreateCtrl", ['$scope', '$http', function ($scope, $http) {
+  .controller("CreateCtrl", ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
     $scope.master = {};
 
@@ -33,8 +33,11 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.createPainting = function () {
       console.log($scope.painting);
       $http.post('/api/paintings', $scope.painting)
-        .success(function (data) {
-          console.log(data);
+        .success(function (id) {
+          console.log("POST ID " + id);
+          var path = '/paintings/' + id;
+          console.log(path);
+          $location.path(path);
         })
         .error(function (data) {
           console.log(data);
