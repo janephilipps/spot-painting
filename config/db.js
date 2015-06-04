@@ -1,3 +1,5 @@
+var env = process.env;
+
 module.exports = {
-  url : 'mongodb://localhost/test'
+  url : env.MONGOLAB_URI
 }
