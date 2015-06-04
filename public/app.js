@@ -1,6 +1,6 @@
 angular.module('spotPaintingApp', ['ngRoute'])
 
-  .controller("MainCtrl", ['$scope', '$http', function ($sope, $http) {
+  .controller("MainCtrl", ['$scope', '$http', function ($scope, $http) {
 
   }])
 
@@ -70,7 +70,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   .controller("PaintingsCtrl", ['$scope', '$http', function ($scope, $http) {
 
-      $http.get('/paintings')
+      $http.get('/api/paintings')
         .success(function (paintings) {
           console.log(paintings);
           $scope.paintings = paintings;
@@ -83,7 +83,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   .controller("PaintingCtrl", ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
     console.log($routeParams);
-      $http.get('/paintings/' + $routeParams.id)
+      $http.get('/api/paintings/' + $routeParams.id)
         .success(function (painting) {
           console.log(painting);
           $scope.painting = painting;

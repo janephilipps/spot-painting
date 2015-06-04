@@ -8,20 +8,20 @@ var Painting = require('../models/painting');
     // authentication routes
 
     // sample api route
-    app.get('/api/paintings', function (req, res) {
-      // use mongoose to get all paintings in the database
-      Painting.find(function(err, paintings) {
+    // app.get('/api/paintings', function (req, res) {
+    //   // use mongoose to get all paintings in the database
+    //   Painting.find(function(err, paintings) {
 
-        // if there is an error retrieving, send the error.
-        // nothing after res.send(err) will execute
+    //     // if there is an error retrieving, send the error.
+    //     // nothing after res.send(err) will execute
 
-        if (err) {
-          res.send(err);
-        }
-        res.json(paintings); // return all paintings in JSON format
+    //     if (err) {
+    //       res.send(err);
+    //     }
+    //     res.json(paintings); // return all paintings in JSON format
 
-      });
-    });
+    //   });
+    // });
 
 
     // Route to save painting to DB
@@ -33,7 +33,7 @@ var Painting = require('../models/painting');
     });
 
     // Route to gallery
-    app.get('/paintings', function (req, res) {
+    app.get('/api/paintings', function (req, res) {
       console.log('I made it!');
       Painting.find()
       .then(function (paintings) {
@@ -49,7 +49,7 @@ var Painting = require('../models/painting');
     });
 
     // Route to painting
-    app.get('/paintings/:id', function (req, res) {
+    app.get('/api/paintings/:id', function (req, res) {
       console.log('painting!');
       Painting.find( { _id: req.params.id })
         .then(function (painting) {
