@@ -4,6 +4,10 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   }])
 
+  .controller("HomeCtrl", ['$scope', '$http', function ($scope, $http) {
+
+  }])
+
   .controller("CreateCtrl", ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
     $scope.master = {};
@@ -110,8 +114,12 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $routeProvider
         // .when("/", {
         //   templateUrl: 'views/index.html',
-        //   controller: 'MainCtrl'
+        //   controller: 'HomeCtrl'
         // })
+        .when("/home", {
+          templateUrl: 'views/home.html',
+          controller: 'HomeCtrl'
+        })
         .when("/about", {
           templateUrl: 'views/about.html',
           controller: 'AboutCtrl'
@@ -129,7 +137,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
           controller: 'PaintingCtrl'
         })
         .otherwise({
-          redirectTo: '/'
+          redirectTo: '/home'
         });
   }]);
 

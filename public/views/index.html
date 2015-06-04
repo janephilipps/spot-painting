@@ -26,12 +26,19 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
+  <!-- <ng-include src="'./partials/header.html'"></ng-include> -->
+<!-- <header>
+  <ng-include
+  src="'./partials/header.html'">
+  </ng-include>
+</header> -->
 
+  <header>
   <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
 
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Spot Painting</a>
+      <a class="navbar-brand" href="#/home">Spot Painting</a>
     </div>
 
     <ul class="nav navbar-nav">
@@ -41,14 +48,20 @@
     </ul>
   </div>
 </nav>
+    
+  </header>
 
   <br>
 
-  <h1>Welcome!</h1>
+  <!-- <h1>Welcome!</h1>
   <p>Spot Painting is a simple web app that lets you create spot paintings and share them with your friends. Ready to create your own? Get started <a href="#/create">here</a>!</p>
-  <p>Why spot paintings? Check out the <a href="#/about">about</a> page.</p>
+  <p>Why spot paintings? Check out the <a href="#/about">about</a> page.</p> -->
   <div ng-view></div>
   </div>
+  <!-- <footer>
+    <ng-include src="'./partials/footer.html'"></ng-include>
+  </footer> -->
+  
   <footer>
     <br />
     <p class="text-center text-muted">Created by <a href="#">Jane Philipps</a></p>
