@@ -48,6 +48,18 @@ var Painting = require('../models/painting');
       })
     });
 
+    // Route to painting
+    app.get('/paintings/:id', function (req, res) {
+      console.log('painting!');
+      Painting.find( { _id: req.params.id })
+        .then(function (painting) {
+          painting[0].painting.forEach(function(colorStr,id,arr){
+            arr[id] = colorStr.split(",");
+          });
+          res.json(painting);
+        })
+    })
+
     // route to handle creating goes here (app.post)
     // route to handle all angular requests
     app.get('*', function (req, res) {

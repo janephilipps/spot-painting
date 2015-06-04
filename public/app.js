@@ -64,7 +64,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   }])
 
-  .controller("PaintingCtrl", ['$scope', '$http', function ($scope, $http) {
+  .controller("PaintingsCtrl", ['$scope', '$http', function ($scope, $http) {
 
       $http.get('/paintings')
         .success(function (paintings) {
@@ -73,6 +73,19 @@ angular.module('spotPaintingApp', ['ngRoute'])
         })
         .error(function (paintings) {
           console.log(paintings);
+        })
+
+  }])
+
+  .controller("PaintingCtrl", ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    console.log($routeParams);
+      $http.get('/paintings/' + $routeParams.id)
+        .success(function (painting) {
+          console.log(painting);
+          $scope.painting = painting;
+        })
+        .error(function (painting) {
+          //console.log(painting);
         })
 
   }])
@@ -104,6 +117,10 @@ angular.module('spotPaintingApp', ['ngRoute'])
         // })
         .when("/paintings", {
           templateUrl: '/views/paintings.html',
+          controller: 'PaintingsCtrl'
+        })
+        .when("/paintings/:id", {
+          templateUrl: '/views/painting.html',
           controller: 'PaintingCtrl'
         });
 
