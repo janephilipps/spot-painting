@@ -70,3 +70,7 @@ a:hover {
 .contact {
   display: block;
 }
+
+.title {
+  text-align: center;
+}
