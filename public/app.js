@@ -120,8 +120,9 @@ angular.module('spotPaintingApp', ['ngRoute'])
         .when("/paintings/:id", {
           templateUrl: '/views/painting.html',
           controller: 'PaintingCtrl'
+        })
+        .otherwise({
+          redirectTo: '/'
         });
-
-      $locationProvider.html5Mode(true);
   }]);
 
