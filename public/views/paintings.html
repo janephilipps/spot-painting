@@ -1,4 +1,6 @@
-<div>
+<div class="center">
+  <h1>Gallery</h1>
+  <br />
   <div style="text-align: center; display: block;" ng-repeat="painting in paintings">
     <b><a href="/#/paintings/{{ painting._id }}">{{ painting.title }}</a></b>
     <div  ng-repeat="colorArray in painting.painting track by $index" style="text-align: center; display: block;">

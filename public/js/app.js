@@ -27,6 +27,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.painting = {
       rows: 15,
       columns: 25,
+      colorNumber: 3,
       colors: {},
       title: '',
       painting: []
@@ -34,7 +35,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.constants = {
       numberOfColors: function () {
-        return $scope.painting.rows;
+        return $scope.painting.colorNumber;
       }
     };
 

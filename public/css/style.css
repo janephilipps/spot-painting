@@ -8,6 +8,7 @@ html, body {
 
 body {
   font-family: Futura, sans-serif;
+  /*min-height: 1000px;*/
 }
 
 .center {
@@ -20,7 +21,7 @@ body {
   margin: 25px;
   padding: 5px;
   background: rgba(255,255,255,.75);
-  position: fixed;
+  position: absolute;
   z-index: 100;
   border-radius: 5%;
 }
@@ -30,7 +31,7 @@ body {
 }
 
 .painting {
-  position: fixed;
+  position: absolute;
   z-index: -100;
 }
 
