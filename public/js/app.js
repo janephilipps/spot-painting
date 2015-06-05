@@ -9,14 +9,13 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.test = "hello";
 
     $scope.painting = {
-      rows: 15,
+      rows: 8,
       columns: 25,
-      colorNumber: 5,
+      colorNumber: 4,
       colors: { 0: 'cyan',
                 1: 'magenta',
                 2: 'yellow',
-                3: 'black',
-                4: 'white'},
+                3: 'black'},
       title: '',
       painting: []
     };
