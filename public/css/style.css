@@ -50,9 +50,9 @@ body {
   height: 142px;
 }
 
-header {
+/*header {
   background-color: yellow;
-}
+}*/
 
 .site-footer {
   background-color: cyan;
@@ -74,4 +74,18 @@ a:hover {
 
 .title {
   text-align: center;
+}
+
+/*.container-fluid {
+  background-color: cyan;
+}*/
+
+
+.navbar {
+  background-color: cyan;
+}
+
+.navbar li a:hover {
+  background-color: rgba(255,255,0,.25);
+  color: black;
 }
