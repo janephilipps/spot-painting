@@ -58,12 +58,12 @@ a:hover {
   color: black;
 }
 
-.navbar-brand:hover {
+.navbar-header a:hover {
   background-color: rgba(255,0,255,.25);
-  color: white;
+  color:white;
 }
 
-.navbar-brand:visited {
+.navbar-header a:visited {
   color: black;
 }
 
