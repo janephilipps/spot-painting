@@ -4,7 +4,55 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   }])
 
-  .controller("HomeCtrl", ['$scope', '$http', function ($scope, $http) {
+  .controller("HomeCtrl", ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
+
+    $scope.test = "hello";
+
+    $scope.painting = {
+      rows: 15,
+      columns: 25,
+      colorNumber: 5,
+      colors: { 0: 'cyan',
+                1: 'magenta',
+                2: 'yellow',
+                3: 'black',
+                4: 'white'},
+      title: '',
+      painting: []
+    };
+
+    $scope.fillRandom = function () {
+      var colors = $scope.painting.colors;
+      var arrColors = [];
+      for (var key in colors) {
+          var color = colors[key];
+          arrColors.push(color);
+      }
+
+      // Given some rows, columns, and an empty array
+      var r = $scope.painting.rows,
+          c = $scope.painting.columns,
+          array = [];
+
+      for (var i = 0; i < r; i++) {
+        array.push([]);
+        for (var j = 0; j < c; j++) {
+          var rand = Math.floor(Math.random() * arrColors.length);
+          array[i].push(arrColors[rand]);
+        }
+      }
+
+      // Then save the array
+      $scope.painting.painting = array;
+    };
+
+    // $scope.fillRandom();
+
+    // $interval.$scope.fillRandom(3000);
+
+    $interval(function() {
+      $scope.fillRandom();
+    }, 1000);
 
   }])
 
