@@ -67,6 +67,10 @@ a:hover {
   color: black;
 }
 
+.navbar-header a:visited:hover {
+  color: white;
+}
+
 .text-muted {
   color: black;
 }
