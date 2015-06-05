@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var env = process.env;
+var favicon = require('serve-favicon');
+
 console.log(env.MONGOLAB_URI);
 mongoose.connect(env.MONGOLAB_URI);
 // Require routes
@@ -36,6 +38,9 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 // Set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
+
+// Favicon!
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 // Routes
 require('./routes')(app); // configure our routes

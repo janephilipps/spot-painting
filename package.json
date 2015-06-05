@@ -21,6 +21,7 @@
     "express": "^4.12.4",
     "method-override": "^2.3.3",
     "mongodb": "^2.0.33",
-    "mongoose": "^4.0.4"
+    "mongoose": "^4.0.4",
+    "serve-favicon": "^2.2.1"
   }
 }
