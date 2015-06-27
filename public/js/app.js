@@ -91,7 +91,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
     };
 
     $scope.reset = function () {
-      $scope.painting = angular.copy($scope.master);
+      $scope.painting = {
+        rows: 15,
+        columns: 25,
+        colorNumber: 3,
+        colors: {},
+        title: '',
+        painting: []
+      };
     };
 
     $scope.createPainting = function () {
