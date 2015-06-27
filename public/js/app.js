@@ -131,28 +131,35 @@ angular.module('spotPaintingApp', ['ngRoute'])
     };
 
     $scope.fillRandom = function () {
-      var colors = $scope.painting.colors;
-      var arrColors = [];
-      for (var key in colors) {
-          var color = colors[key];
-          arrColors.push(color);
-      }
 
-      // Given some rows, columns, and an empty array
-      var r = $scope.painting.rows,
-          c = $scope.painting.columns,
-          array = [];
-
-      for (var i = 0; i < r; i++) {
-        array.push([]);
-        for (var j = 0; j < c; j++) {
-          var rand = Math.floor(Math.random() * arrColors.length);
-          array[i].push(arrColors[rand]);
+      if (!(Object.keys($scope.painting.colors).length === $scope.painting.colorNumber)) {
+        // change error message
+        $scope.message = "Please select colors!";
+      } else {
+        var colors = $scope.painting.colors;
+        var arrColors = [];
+        for (var key in colors) {
+            var color = colors[key];
+            arrColors.push(color);
         }
+
+        // Given some rows, columns, and an empty array
+        var r = $scope.painting.rows,
+            c = $scope.painting.columns,
+            array = [];
+
+        for (var i = 0; i < r; i++) {
+          array.push([]);
+          for (var j = 0; j < c; j++) {
+            var rand = Math.floor(Math.random() * arrColors.length);
+            array[i].push(arrColors[rand]);
+          }
+        }
+
+        // Then save the array
+        $scope.painting.painting = array;
       }
 
-      // Then save the array
-      $scope.painting.painting = array;
     };
 
   }])
