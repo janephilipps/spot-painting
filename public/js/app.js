@@ -91,6 +91,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
     };
 
     $scope.reset = function () {
+      $scope.message = "";
       $scope.painting = {
         rows: 15,
         columns: 25,
@@ -132,10 +133,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.fillRandom = function () {
 
-      if (!(Object.keys($scope.painting.colors).length === $scope.painting.colorNumber)) {
+      if (Object.keys($scope.painting.colors).length === 0) {
         // change error message
         $scope.message = "Please select colors!";
+      } else if (!(Object.keys($scope.painting.colors).length === $scope.painting.colorNumber)) {
+        // change error message
+        $scope.message = "Please select all colors!";
       } else {
+        $scope.message = "";
         var colors = $scope.painting.colors;
         var arrColors = [];
         for (var key in colors) {
