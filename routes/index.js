@@ -39,6 +39,6 @@ var Painting = require('../models/painting');
     // route to handle creating goes here (app.post)
     // route to handle all angular requests
     app.get('*', function (req, res) {
-      res.sendFile('./public/views/index.html');
+      res.sendfile('./public/views/index.html');
     });
   };
