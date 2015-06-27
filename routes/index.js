@@ -5,6 +5,7 @@ var Painting = require('../models/painting');
 
     // Route to save painting to DB
     app.post('/api/paintings', function (req, res) {
+      console.log("Body is: " + JSON.stringify(req.body));
       Painting.create(req.body, function (err, painting) {
         console.log("Painting is : " + painting);
         console.log("Error is : " + err);
