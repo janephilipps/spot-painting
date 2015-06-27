@@ -103,7 +103,11 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $scope.createPainting = function () {
       console.log($scope.painting);
-      $http.post('/api/paintings', $scope.painting)
+      if (!$scope.painting.title) {
+        $scope.message = "Please title your work!";
+      } else {
+        // save painting
+        $http.post('/api/paintings', $scope.painting)
         .success(function (id) {
           console.log("POST ID " + id);
           var path = '/paintings/' + id;
@@ -112,7 +116,14 @@ angular.module('spotPaintingApp', ['ngRoute'])
         })
         .error(function (data) {
           console.log(data);
-        })
+        });
+      }
+    };
+
+    $scope.message = "";
+
+    $scope.getMessage = function () {
+      return $scope.message;
     };
 
     $scope.fillRandom = function () {
