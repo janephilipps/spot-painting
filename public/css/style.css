@@ -92,3 +92,7 @@ a:hover {
   background-color: rgba(255,0,255,.25);
   color: white;
 }
+
+.alert {
+  color: red;
+}

@@ -7,10 +7,10 @@
       <div ng-repeat="n in [] | range: constants.numberOfColors()">
         Color {{n + 1}}:<input class="field color" type="color" ng-model="painting.colors[n]">
       </div>
-      <input class="field" type="string" placeholder="Title Your Work" ng-model="painting.title" /><br />
+      <input class="field" type="string" placeholder="Title Your Work" ng-show="hasGenerated()" ng-model="painting.title" /><br />
       <input type="button" ng-click="reset()" value="Reset" />
       <input class="field" type="button" ng-click="fillRandom()" value="Generate" />
-      <input class="field" type="submit" ng-click="createPainting()" value="Save" />
+      <input class="field" type="submit" ng-click="createPainting()" ng-show="hasGenerated()" value="Save" />
     </form>
 
     <div class="alert" ng-show="getMessage()">

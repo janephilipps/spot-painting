@@ -126,6 +126,10 @@ angular.module('spotPaintingApp', ['ngRoute'])
       return $scope.message;
     };
 
+    $scope.hasGenerated = function () {
+      return ($scope.painting.painting.length !== 0);
+    };
+
     $scope.fillRandom = function () {
       var colors = $scope.painting.colors;
       var arrColors = [];
