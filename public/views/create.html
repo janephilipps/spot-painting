@@ -1,12 +1,38 @@
 <div class="center">
 <h1>Create</h1>
-    <form novalidate class="simple-form">
+    <!-- WEB FORM WITH COLOR PICKER -->
+    <form novalidate id="web" class="simple-form">
       Rows: <input class="field" type="number" min="3" max="30" ng-model="painting.rows" /><br />
       Columns: <input class="field" type="number" min="3" max="25" ng-model="painting.columns" /><br />
       Colors: <input class="field" type="number" min="3" max="{{ painting.rows }}" ng-model="painting.colorNumber" /><br />
       <div ng-repeat="n in [] | range: constants.numberOfColors()">
         Color {{n + 1}}:<input class="field color" type="color" ng-model="painting.colors[n]">
       </div>
+      <input class="field" type="string" placeholder="Title Your Work" ng-show="hasGenerated()" ng-model="painting.title" /><br />
+      <input type="button" ng-click="reset()" value="Reset" />
+      <input class="field" type="button" ng-click="fillRandom()" value="Generate" />
+      <input class="field" type="submit" ng-click="createPainting()" ng-show="hasGenerated()" value="Save" />
+    </form>
+
+    <!-- MOBILE FORM WITH COLOR DROPDOWN -->
+    <form novalidate id="mobile" class="simple-form">
+      Rows: <input class="field" type="number" min="3" max="30" ng-model="painting.rows" /><br />
+      Columns: <input class="field" type="number" min="3" max="25" ng-model="painting.columns" /><br />
+      Colors: <input class="field" type="number" min="3" max="{{ painting.rows }}" ng-model="painting.colorNumber" /><br />
+
+      <!-- COLOR PICKER FOR MOBILE -->
+      <div ng-repeat="n in [] | range: constants.numberOfColors()">
+        Color {{n + 1}}:<select name="colorList" ng-model="painting.colors[n]">
+          <option value="red">red</option>
+          <option value="orange">orange</option>
+          <option value="yellow">yellow</option>
+          <option value="green">green</option>
+          <option value="blue">blue</option>
+          <option value="indigo">indigo</option>
+          <option value="violet">violet</option>
+        </select>
+      </div>
+
       <input class="field" type="string" placeholder="Title Your Work" ng-show="hasGenerated()" ng-model="painting.title" /><br />
       <input type="button" ng-click="reset()" value="Reset" />
       <input class="field" type="button" ng-click="fillRandom()" value="Generate" />

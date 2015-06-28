@@ -96,3 +96,32 @@ a:hover {
 .alert {
   color: red;
 }
+
+#web {
+  display: none;
+}
+
+#mobile {
+  display: none;
+}
+
+
+/* MEDIA QUERIES */
+
+@media handheld, screen and (min-width: 320px) and (max-width: 1024px) {
+
+  #mobile {
+    display: block;
+  }
+}
+
+@media handheld, screen and (min-width: 1025px) {
+
+  #web {
+    display: block;
+  }
+}
+
+
+
+
