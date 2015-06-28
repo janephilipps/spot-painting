@@ -23,13 +23,7 @@
       <!-- COLOR PICKER FOR MOBILE -->
       <div ng-repeat="n in [] | range: constants.numberOfColors()">
         Color {{n + 1}}:<select name="colorList" ng-model="painting.colors[n]">
-          <option value="red">red</option>
-          <option value="orange">orange</option>
-          <option value="yellow">yellow</option>
-          <option value="green">green</option>
-          <option value="blue">blue</option>
-          <option value="indigo">indigo</option>
-          <option value="violet">violet</option>
+          <option ng-repeat="color in cssColors" value="{{color}}">{{color}}</option>
         </select>
       </div>
 

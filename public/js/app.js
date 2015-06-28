@@ -6,8 +6,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   .controller("HomeCtrl", ['$scope', '$http', '$interval', function ($scope, $http, $interval) {
 
-    $scope.test = "hello";
-
     $scope.painting = {
       rows: 8,
       columns: 25,
@@ -45,10 +43,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting.painting = array;
     };
 
-    // $scope.fillRandom();
-
-    // $interval.$scope.fillRandom(3000);
-
     $interval(function() {
       $scope.fillRandom();
     }, 1000);
@@ -69,8 +63,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
   .controller("CreateCtrl", ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
-    $scope.master = {};
-
     $scope.painting = {
       rows: 15,
       columns: 25,
@@ -80,14 +72,160 @@ angular.module('spotPaintingApp', ['ngRoute'])
       painting: []
     };
 
+    $scope.cssColors = [
+      "aliceblue",
+      "antiquewhite",
+      "aqua",
+      "aquamarine",
+      "azure",
+      "beige",
+      "bisque",
+      "black",
+      "blanchedalmond",
+      "blue",
+      "blueviolet",
+      "brown",
+      "burlywood",
+      "cadetblue",
+      "chartreuse",
+      "chocolate",
+      "coral",
+      "cornflowerblue",
+      "cornsilk",
+      "crimson",
+      "cyan",
+      "darkblue",
+      "darkcyan",
+      "darkgoldenrod",
+      "darkgray",
+      "darkgreen",
+      "darkgrey",
+      "darkkhaki",
+      "darkmagenta",
+      "darkolivegreen",
+      "darkorange",
+      "darkorchid",
+      "darkred",
+      "darksalmon",
+      "darkseagreen",
+      "darkslateblue",
+      "darkslategray",
+      "darkslategrey",
+      "darkturquoise",
+      "darkviolet",
+      "deeppink",
+      "deepskyblue",
+      "dimgray",
+      "dimgrey",
+      "dodgerblue",
+      "firebrick",
+      "floralwhite",
+      "forestgreen",
+      "fuchsia",
+      "gainsboro",
+      "ghostwhite",
+      "gold",
+      "goldenrod",
+      "gray",
+      "green",
+      "greenyellow",
+      "grey",
+      "honeydew",
+      "hotpink",
+      "indianred",
+      "indigo",
+      "ivory",
+      "khaki",
+      "lavender",
+      "lavenderblush",
+      "lawngreen",
+      "lemonchiffon",
+      "lightblue",
+      "lightcoral",
+      "lightcyan",
+      "lightgoldenrodyellow",
+      "lightgray",
+      "lightgreen",
+      "lightgrey",
+      "lightpink",
+      "lightsalmon",
+      "lightseagreen",
+      "lightskyblue",
+      "lightslategray",
+      "lightslategrey",
+      "lightsteelblue",
+      "lightyellow",
+      "lime",
+      "limegreen",
+      "linen",
+      "magenta",
+      "maroon",
+      "mediumaquamarine",
+      "mediumblue",
+      "mediumorchid",
+      "mediumpurple",
+      "mediumseagreen",
+      "mediumslateblue",
+      "mediumspringgreen",
+      "mediumturquoise",
+      "mediumvioletred",
+      "midnightblue",
+      "mintcream",
+      "mistyrose",
+      "moccasin",
+      "navajowhite",
+      "navy",
+      "oldlace",
+      "olive",
+      "olivedrab",
+      "orange",
+      "orangered",
+      "orchid",
+      "palegoldenrod",
+      "palegreen",
+      "paleturquoise",
+      "palevioletred",
+      "papayawhip",
+      "peachpuff",
+      "peru",
+      "pink",
+      "plum",
+      "powderblue",
+      "purple",
+      "red",
+      "rosybrown",
+      "royalblue",
+      "saddlebrown",
+      "salmon",
+      "sandybrown",
+      "seagreen",
+      "seashell",
+      "sienna",
+      "silver",
+      "skyblue",
+      "slateblue",
+      "slategray",
+      "slategrey",
+      "snow",
+      "springgreen",
+      "steelblue",
+      "tan",
+      "teal",
+      "thistle",
+      "tomato",
+      "turquoise",
+      "violet",
+      "wheat",
+      "white",
+      "whitesmoke",
+      "yellow",
+      "yellowgreen"
+    ];
+
     $scope.constants = {
       numberOfColors: function () {
         return $scope.painting.colorNumber;
       }
-    };
-
-    $scope.update = function (painting) {
-      $scope.master = angular.copy(painting);
     };
 
     $scope.reset = function () {
