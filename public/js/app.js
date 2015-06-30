@@ -45,7 +45,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
 
     $interval(function() {
       $scope.fillRandom();
-    }, 1000);
+    }, 2500);
 
   }])
 
@@ -99,7 +99,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       "darkgoldenrod",
       "darkgray",
       "darkgreen",
-      "darkgrey",
       "darkkhaki",
       "darkmagenta",
       "darkolivegreen",
@@ -110,7 +109,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       "darkseagreen",
       "darkslateblue",
       "darkslategray",
-      "darkslategrey",
       "darkturquoise",
       "darkviolet",
       "deeppink",
@@ -129,7 +127,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       "gray",
       "green",
       "greenyellow",
-      "grey",
       "honeydew",
       "hotpink",
       "indianred",
@@ -146,13 +143,11 @@ angular.module('spotPaintingApp', ['ngRoute'])
       "lightgoldenrodyellow",
       "lightgray",
       "lightgreen",
-      "lightgrey",
       "lightpink",
       "lightsalmon",
       "lightseagreen",
       "lightskyblue",
       "lightslategray",
-      "lightslategrey",
       "lightsteelblue",
       "lightyellow",
       "lime",
@@ -205,7 +200,6 @@ angular.module('spotPaintingApp', ['ngRoute'])
       "skyblue",
       "slateblue",
       "slategray",
-      "slategrey",
       "snow",
       "springgreen",
       "steelblue",

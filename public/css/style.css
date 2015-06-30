@@ -24,12 +24,16 @@ body {
   margin: 3px;
 }
 
+p {
+  font-size: 16px;
+}
+
 a {
-  color: cyan;
+  color: grey;
 }
 
 a:hover {
-  color: magenta;
+  color: black;
   text-decoration: none;
 }
 
@@ -42,7 +46,7 @@ a:hover {
 }
 
 .navbar {
-  background-color: cyan;
+  background-color: rgba(84,84,84,.5);
 }
 
 .navbar li a:hover {
@@ -51,11 +55,11 @@ a:hover {
 }
 
 .navbar li a {
-  color: black;
+  color: white;
 }
 
 .navbar-brand {
-  color: black;
+  color: white;
 }
 
 .navbar-header a:hover {
@@ -64,7 +68,7 @@ a:hover {
 }
 
 .navbar-header a:visited {
-  color: black;
+  color: white;
 }
 
 .navbar-header a:visited:hover {
@@ -76,7 +80,7 @@ a:hover {
 }
 
 .footer {
-  background-color: cyan;
+  background-color: grey;
   color: white;
   position: absolute;
   bottom: 0;
@@ -85,11 +89,15 @@ a:hover {
 }
 
 .footer a {
-  color: black;
+  color: white;
 }
 
 .footer a:hover {
   background-color: rgba(255,0,255,.25);
+  color: white;
+}
+
+.text-muted {
   color: white;
 }
 
