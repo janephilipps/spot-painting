@@ -113,8 +113,29 @@ a:hover {
   display: none;
 }
 
+#gallery {
+  text-align: center;
+  display: block;
+}
+
+#painting {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin: 10px;
+  display: inline-block;
+}
+
 
 /* MEDIA QUERIES */
+
+/* painting responsivness */
+
+/*@media screen and (min-wdith: 320px) and (max-width: 476px) {
+  .painting {
+
+  }
+}*/
 
 @media handheld, screen and (min-width: 320px) and (max-width: 1024px) {
 
