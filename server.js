@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var env = process.env;
 var favicon = require('serve-favicon');
 
-console.log(env.MONGOLAB_URI);
+// console.log(env.MONGOLAB_URI);
 mongoose.connect(env.MONGOLAB_URI);
 // Require routes
 var routes = require('./routes/index');
