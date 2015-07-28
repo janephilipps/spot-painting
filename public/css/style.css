@@ -46,33 +46,34 @@ a:hover {
 }
 
 .navbar {
-  background-color: rgba(84,84,84,.5);
+  /*background-color: rgba(84,84,84,.5);*/
+  background-color: white;
 }
 
 .navbar li a:hover {
   background-color: rgba(255,255,0,.25);
-  color: white;
+  color: grey;
 }
 
 .navbar li a {
-  color: white;
+  color: black;
 }
 
 .navbar-brand {
-  color: white;
+  color: black;
 }
 
 .navbar-header a:hover {
   background-color: rgba(0,255,255,.25);
-  color:white;
+  color:grey;
 }
 
 .navbar-header a:visited {
-  color: white;
+  color: black;
 }
 
 .navbar-header a:visited:hover {
-  color: white;
+  color: grey;
 }
 
 .text-muted {
@@ -80,8 +81,8 @@ a:hover {
 }
 
 .footer {
-  background-color: grey;
-  color: white;
+  background-color: white;
+  color: black;
   position: absolute;
   bottom: 0;
   height: 75px;
@@ -89,16 +90,16 @@ a:hover {
 }
 
 .footer a {
-  color: white;
+  color: black;
 }
 
 .footer a:hover {
   background-color: rgba(255,0,255,.25);
-  color: white;
+  color: grey;
 }
 
 .text-muted {
-  color: white;
+  color: black;
 }
 
 .alert {

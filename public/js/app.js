@@ -9,11 +9,16 @@ angular.module('spotPaintingApp', ['ngRoute'])
     $scope.painting = {
       rows: 8,
       columns: 25,
-      colorNumber: 4,
-      colors: { 0: 'cyan',
-                1: 'magenta',
-                2: 'yellow',
-                3: 'black'},
+      colorNumber: 8,
+      colors: { 0: 'aquamarine',
+                1: 'midnightblue',
+                2: 'orangered',
+                3: 'dodgerblue',
+                4: 'hotpink',
+                5: 'gold',
+                6: 'lightseagreen',
+                7: 'thistle',
+                8: 'firebrick'},
       title: '',
       painting: []
     };
@@ -43,6 +48,7 @@ angular.module('spotPaintingApp', ['ngRoute'])
       $scope.painting.painting = array;
     };
 
+    $scope.fillRandom();
     $interval(function() {
       $scope.fillRandom();
     }, 2500);
