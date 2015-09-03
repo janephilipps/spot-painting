@@ -378,15 +378,15 @@ angular.module('spotPaintingApp', ['ngRoute'])
         //   controller: 'HomeCtrl'
         // })
         .when("/home", {
-          templateUrl: 'views/home.html',
+          templateUrl: '/views/home.html',
           controller: 'HomeCtrl'
         })
         .when("/about", {
-          templateUrl: 'views/about.html',
+          templateUrl: '/views/about.html',
           controller: 'AboutCtrl'
         })
         .when("/contact", {
-          templateUrl: 'views/contact.html',
+          templateUrl: '/views/contact.html',
           controller: 'ContactCtrl'
         })
         .when("/create", {
