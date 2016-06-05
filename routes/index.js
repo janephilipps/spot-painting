@@ -1,4 +1,8 @@
 var Painting = require('../models/painting');
+var passport = require('passport');
+
+require('../config/passport')(passport);
+
 
   module.exports = function (app) {
 
@@ -29,7 +33,11 @@ var Painting = require('../models/painting');
           });
           res.json(painting);
         })
-    })
+    });
+
+    app.post('/api/signup', passport.authenticate('local-signup'), function (req, res) {
+      res.send(req.user);
+    });
 
     app.get('*', function (req, res) {
       res.sendfile('./public/views/index.html');

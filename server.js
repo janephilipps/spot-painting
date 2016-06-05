@@ -5,6 +5,7 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var env = process.env;
 var favicon = require('serve-favicon');
+var passport = require('passport');
 
 mongoose.connect(env.MONGOLAB_URI);
 
@@ -29,6 +30,8 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
+app.use(passport.initialize());
 
 require('./routes')(app);
 
