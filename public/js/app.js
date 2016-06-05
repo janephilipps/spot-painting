@@ -22,31 +22,27 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
     };
   });
 
-  app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
+  app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
       $routeProvider
-        // .when("/", {
-        //   templateUrl: 'views/index.html',
-        //   controller: 'HomeCtrl'
-        // })
-        .when("/home", {
+        .when('/home', {
           templateUrl: '/views/home.html',
           controller: 'HomeController'
         })
-        .when("/about", {
+        .when('/about', {
           templateUrl: '/views/about.html'
         })
-        .when("/contact", {
+        .when('/contact', {
           templateUrl: '/views/contact.html'
         })
-        .when("/create", {
+        .when('/create', {
           templateUrl: '/views/create.html',
           controller: 'CreateController'
         })
-        .when("/paintings", {
+        .when('/paintings', {
           templateUrl: '/views/paintings.html',
           controller: 'PaintingsController'
         })
-        .when("/paintings/:id", {
+        .when('/paintings/:id', {
           templateUrl: '/views/painting.html',
           controller: 'PaintingController'
         })

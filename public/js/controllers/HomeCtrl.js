@@ -25,7 +25,6 @@ angular.module('HomeCtrl', []).controller('HomeController', ['$scope', '$http', 
         arrColors.push(color);
     }
 
-    // Given some rows, columns, and an empty array
     var r = $scope.painting.rows,
         c = $scope.painting.columns,
         array = [];
@@ -38,12 +37,11 @@ angular.module('HomeCtrl', []).controller('HomeController', ['$scope', '$http', 
       }
     }
 
-    // Then save the array
     $scope.painting.painting = array;
   };
 
   $scope.fillRandom();
-  $interval(function() {
+  $interval(function () {
     $scope.fillRandom();
   }, 2500);
 

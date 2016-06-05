@@ -46,7 +46,6 @@ a:hover {
 }
 
 .navbar {
-  /*background-color: rgba(84,84,84,.5);*/
   background-color: white;
 }
 
@@ -130,14 +129,6 @@ a:hover {
 
 /* MEDIA QUERIES */
 
-/* painting responsivness */
-
-/*@media screen and (min-wdith: 320px) and (max-width: 476px) {
-  .painting {
-
-  }
-}*/
-
 @media handheld, screen and (min-width: 320px) and (max-width: 1024px) {
 
   body {
@@ -164,7 +155,3 @@ a:hover {
     display: block;
   }
 }
-
-
-
-

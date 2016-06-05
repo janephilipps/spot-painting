@@ -17,11 +17,14 @@
   },
   "homepage": "https://github.com/janephilipps/spot_painting_app",
   "dependencies": {
+    "bcrypt": "^0.8.6",
     "body-parser": "^1.12.4",
     "express": "^4.12.4",
     "method-override": "^2.3.3",
     "mongodb": "^2.0.33",
     "mongoose": "4.0.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "serve-favicon": "^2.2.1"
   }
 }
