@@ -3,6 +3,13 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
 module.exports = function (passport) {
+    var makeUser = function (user) {
+        return {
+            email: user.email,
+            _id: user._id
+        };
+    };
+
     passport.use('local-signup', new LocalStrategy(
         {
             usernameField: 'email',
@@ -25,7 +32,7 @@ module.exports = function (passport) {
                         if (err) {
                             done(err);
                         } else {
-                            done(null, newUser.email);
+                            done(null, makeUser(newUser));
                         }
                     });
                 }
@@ -45,7 +52,7 @@ module.exports = function (passport) {
                 }
                 if (user) {
                     if (user.isValidPassword(password)) {
-                        done(null, user.email);
+                        done(null, makeUser(user));
                     } else {
                         done(null, false);
                     }
