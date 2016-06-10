@@ -1,4 +1,5 @@
 var Painting = require('../models/painting');
+var User = require('../models/user');
 var passport = require('passport');
 
 require('../config/passport')(passport);
@@ -36,6 +37,10 @@ require('../config/passport')(passport);
     });
 
     app.post('/api/signup', passport.authenticate('local-signup'), function (req, res) {
+      res.send(req.user);
+    });
+
+    app.post('/api/login', passport.authenticate('local-login'), function (req, res) {
       res.send(req.user);
     });
 

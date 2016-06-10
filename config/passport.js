@@ -13,23 +13,46 @@ module.exports = function (passport) {
 
             User.findOne({ email: email }, function (err, user) {
                 if (err) {
-                    return done(err);
+                    done(err);
                 }
                 if (user) {
-                    return done(null, false);
+                    done(null, false);
                 } else {
                     newUser = new User();
                     newUser.email = email;
                     newUser.passwordHash = newUser.generateHash(password);
                     newUser.save(function (err) {
                         if (err) {
-                            throw err;
+                            done(err);
                         } else {
-                            return done(null, newUser);
+                            done(null, newUser.email);
                         }
-                    })
+                    });
                 }
-            })
+            });
+        }
+    ));
+
+    passport.use('local-login', new LocalStrategy(
+        {
+            usernameField: 'email',
+            passwordField: 'password'
+        },
+        function (email, password, done) {
+            User.findOne({ email: email }, function (err, user) {
+                if (err) {
+                    done(err);
+                }
+                if (user) {
+                    if (user.isValidPassword(password)) {
+                        done(null, user.email);
+                    } else {
+                        done(null, false);
+                    }
+                } else {
+                    done(null, false);
+                }
+            });
         }
     ));
 
