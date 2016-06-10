@@ -37,6 +37,6 @@ require('./routes')(app);
 
 app.listen(port);
 
-console.log('Magic happens on port ' + port);
+console.log('Spots beginning to appear on port ' + port);
 
 exports = module.exports = app;
