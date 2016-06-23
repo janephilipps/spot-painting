@@ -1,4 +1,4 @@
-var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'RegisterCtrl', 'LoginCtrl']);
+var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'RegisterCtrl', 'LoginCtrl', 'HeaderCtrl']);
 
   app.filter('range', function () {
     return function (input, total) {
@@ -12,7 +12,8 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
 
   app.directive('appHeader', function() {
     return {
-      templateUrl: 'views/layouts/header.html'
+      templateUrl: 'views/layouts/header.html',
+      controller: 'HeaderController'
     };
   });
 
@@ -53,6 +54,10 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
         .when('/login', {
           templateUrl: '/views/login.html',
           controller: 'LoginController'
+        })
+        .when('/logout', {
+          templateUrl: '',
+          controller: 'LogoutController'
         })
         .otherwise({
           redirectTo: '/home'
