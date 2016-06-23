@@ -1,4 +1,4 @@
-angular.module('RegisterCtrl', []).controller('RegisterController', ['$scope', '$http', function($scope, $http) {
+angular.module('RegisterCtrl', []).controller('RegisterController', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
 
     $scope.user = {};
 
@@ -9,8 +9,11 @@ angular.module('RegisterCtrl', []).controller('RegisterController', ['$scope', '
         } else {
             return $http.post('/api/signup', $scope.user)
             .success(function (data, status, headers, config) {
+                $location.path('/login');
             })
-            .error(function (data, status, headers, config) {
+            .error(function (data, status, headers, config, err) {
+                console.log(err);
+                $scope.error = err;
             });
         }
     };

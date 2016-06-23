@@ -1,4 +1,4 @@
-angular.module('CreateCtrl', []).controller('CreateController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
 
   $scope.painting = {
     rows: 15,

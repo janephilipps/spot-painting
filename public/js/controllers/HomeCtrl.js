@@ -1,4 +1,4 @@
-angular.module('HomeCtrl', []).controller('HomeController', ['$scope', '$http', '$interval', function($scope, $http, $interval) {
+angular.module('HomeCtrl', []).controller('HomeController', ['$rootScope', '$scope', '$http', '$interval', function($rootScope, $scope, $http, $interval) {
 
   $scope.painting = {
     rows: 8,

@@ -1,4 +1,4 @@
-angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', function($scope, $http) {
+angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http) {
 
   $http.get('/api/paintings')
     .success(function (paintings) {

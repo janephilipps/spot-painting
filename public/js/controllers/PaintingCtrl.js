@@ -1,4 +1,4 @@
-angular.module('PaintingCtrl', []).controller('PaintingController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+angular.module('PaintingCtrl', []).controller('PaintingController', ['$rootScope', '$scope', '$http', '$routeParams', function($rootScope, $scope, $http, $routeParams) {
 
   // Tweet button script
   var tweet = function(d,s,id) {

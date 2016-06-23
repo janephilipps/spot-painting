@@ -1,11 +1,14 @@
-angular.module('LoginCtrl', []).controller('LoginController', ['$scope', '$http', function($scope, $http) {
+angular.module('LoginCtrl', []).controller('LoginController', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
 
     $scope.user = {};
 
     $scope.login = function () {
         $http.post('/api/login', $scope.user)
-            .success(function (userEmail) {
-                console.log("Logged in: ", userEmail);
+            .success(function (user) {
+                console.log("Logged in: ", user);
+                $rootScope.authenticated = true;
+                $rootScope.user = user;
+                $location.path('/home');
             })
             .error(function (err) {
                 console.log("Error: " + err);
