@@ -1,4 +1,4 @@
-var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'RegisterCtrl', 'LoginCtrl', 'HeaderCtrl']);
+var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'RegisterCtrl', 'LoginCtrl', 'HeaderCtrl', 'ProfileCtrl']);
 
   app.filter('range', function () {
     return function (input, total) {
@@ -58,6 +58,10 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
         .when('/logout', {
           templateUrl: '',
           controller: 'LogoutController'
+        })
+        .when('/profile', {
+          templateUrl: '/views/profile.html',
+          controller: 'ProfileController'
         })
         .otherwise({
           redirectTo: '/home'
