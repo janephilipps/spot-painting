@@ -2,7 +2,7 @@
   <h1>Gallery</h1>
   <br />
   <div id="gallery" ng-repeat="painting in paintings">
-    <b><a href="/#/paintings/{{ painting._id }}">{{ painting.title }}</a></b>
+    <b><a href="/#/paintings/{{ painting._id }}">{{ painting.title }}</a></b> by <b><a href="/#/users/{{ painting.user._id }}">{{ painting.user.email}}</a></b>
     <div ng-repeat="colorArray in painting.painting track by $index" style="text-align: center; display: block;">
       <div id="painting" ng-repeat="color in colorArray track by $index" style="background-color: {{ color }};">&nbsp;</div>
     </div><br /><br />

@@ -8,26 +8,30 @@ require('../config/passport')(passport);
   module.exports = function (app) {
 
     app.post('/api/paintings', function (req, res) {
-      Painting.create(req.body, function (err, painting) {
+      var painting = req.body.painting;
+      painting.user = req.body.user._id;
+      Painting.create(painting, function (err, painting) {
         res.json(painting._id);
       });
     });
 
     app.get('/api/paintings', function (req, res) {
       Painting.find()
-      .then(function (paintings) {
-        // Paintings are saved in DB weirdly, so we need to do this to fix them and make accessible
-        paintings.forEach(function(painting){
-          painting.painting.forEach(function(colorStr,id,arr){
-            arr[id] = colorStr.split(",");
+        .populate('user')
+        .then(function (paintings) {
+          // Paintings are saved in DB weirdly, so we need to do this to fix them and make accessible
+          paintings.forEach(function(painting){
+            painting.painting.forEach(function(colorStr,id,arr){
+              arr[id] = colorStr.split(",");
+            });
           });
-        });
-        res.json(paintings);
-      })
+          res.json(paintings);
+        })
     });
 
     app.get('/api/paintings/:id', function (req, res) {
       Painting.find( { _id: req.params.id })
+        .populate('user')
         .then(function (painting) {
           painting[0].painting.forEach(function(colorStr,id,arr){
             arr[id] = colorStr.split(",");
@@ -37,11 +41,18 @@ require('../config/passport')(passport);
     });
 
     app.post('/api/signup', passport.authenticate('local-signup'), function (req, res) {
-      res.send(req.user);
+      res.send(res.user);
     });
 
     app.post('/api/login', passport.authenticate('local-login'), function (req, res) {
-      res.send(req.user);
+      res.send(res.user);
+    });
+
+    app.get('/api/users/:id', function (req, res) {
+      User.findOne( { _id: req.params.id })
+        .then(function (user) {
+          res.json(user.safeUser());
+        });
     });
 
     app.get('*', function (req, res) {

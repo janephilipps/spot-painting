@@ -7,7 +7,13 @@ var env = process.env;
 var favicon = require('serve-favicon');
 var passport = require('passport');
 
-mongoose.connect(env.MONGOLAB_URI);
+if (env.MONGOLAB_URI) {
+  console.log("Connecting to prod mongo.");
+  mongoose.connect(env.MONGOLAB_URI);
+} else {
+  console.log("Connecting to dev mongo");
+  mongoose.connect('mongodb://localhost:27017/spot_painting_db');
+}
 
 var routes = require('./routes/index');
 
