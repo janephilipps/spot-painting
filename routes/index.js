@@ -41,11 +41,11 @@ require('../config/passport')(passport);
     });
 
     app.post('/api/signup', passport.authenticate('local-signup'), function (req, res) {
-      res.send(res.user);
+      res.send(req.user);
     });
 
     app.post('/api/login', passport.authenticate('local-login'), function (req, res) {
-      res.send(res.user);
+      res.send(req.user);
     });
 
     app.get('/api/users/:id', function (req, res) {
