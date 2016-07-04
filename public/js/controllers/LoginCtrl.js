@@ -5,13 +5,11 @@ angular.module('LoginCtrl', []).controller('LoginController', ['$rootScope', '$s
     $scope.login = function () {
         $http.post('/api/login', $scope.user)
             .success(function (user) {
-                console.log("Logged in: ", user);
                 $rootScope.authenticated = true;
-                $rootScope.user = user;
+                $rootScope.authenticatedUser = user;
                 $location.path('/profile');
             })
             .error(function (err) {
-                console.log("Error: " + err);
             });
     };
 

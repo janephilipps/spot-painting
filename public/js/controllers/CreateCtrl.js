@@ -174,12 +174,12 @@ angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '
   $scope.createPainting = function () {
     if (!$scope.painting.title) {
       $scope.message = 'Please title your work!';
-    } else if (!$rootScope.user) {
+    } else if (!$rootScope.authenticatedUser) {
       $scope.message = 'Please sign up or log in!';
     } else {
       var newPaintingRequest = {
         painting: $scope.painting,
-        user: $rootScope.user
+        user: $rootScope.authenticatedUser
       }
       $http.post('/api/paintings', newPaintingRequest)
       .success(function (id) {

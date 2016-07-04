@@ -1,5 +1,10 @@
 <div class="center">
   <h1>Profile</h1>
-  <p>Welcome to your profile {{user.email}}!</p>
+  <p ng-show="isSameUser()">Welcome to your profile {{profileUser.email}}!</p>
+  <p ng-hide="isSameUser()">Welcome to the profile of {{profileUser.email}}!</p>
+
+  <br />
+
+  <div paintings-array></div>
 </div>
 <br />

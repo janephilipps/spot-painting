@@ -1,4 +1,4 @@
-var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'RegisterCtrl', 'LoginCtrl', 'HeaderCtrl', 'ProfileCtrl', 'PublicProfileCtrl']);
+var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'RegisterCtrl', 'LoginCtrl', 'HeaderCtrl', 'ProfileCtrl']);
 
   app.filter('range', function () {
     return function (input, total) {
@@ -12,14 +12,20 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
 
   app.directive('appHeader', function() {
     return {
-      templateUrl: 'views/layouts/header.html',
+      templateUrl: 'views/partials/header.html',
       controller: 'HeaderController'
     };
   });
 
   app.directive('appFooter', function() {
     return {
-      templateUrl: 'views/layouts/footer.html'
+      templateUrl: 'views/partials/footer.html'
+    };
+  });
+
+  app.directive('paintingsArray', function() {
+    return {
+      templateUrl: 'views/partials/paintingsArray.html'
     };
   });
 
@@ -64,8 +70,8 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
           controller: 'ProfileController'
         })
         .when('/users/:id', {
-          templateUrl: '/views/public-profile.html',
-          controller: 'PublicProfileController'
+          templateUrl: '/views/profile.html',
+          controller: 'ProfileController'
         })
         .otherwise({
           redirectTo: '/home'

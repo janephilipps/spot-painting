@@ -16,7 +16,12 @@ require('../config/passport')(passport);
     });
 
     app.get('/api/paintings', function (req, res) {
-      Painting.find()
+      var findParam = {};
+      if (req.query.user) {
+        findParam = {user: req.query.user};
+      }
+
+      Painting.find(findParam)
         .populate('user')
         .then(function (paintings) {
           // Paintings are saved in DB weirdly, so we need to do this to fix them and make accessible

@@ -5,14 +5,13 @@ angular.module('RegisterCtrl', []).controller('RegisterController', ['$rootScope
     $scope.register = function () {
 
         if ($scope.user.password !== $scope.user.confirmPassword) {
-            console.log('passwords don\'t match!');
+            // TODO: Handle the error.
         } else {
             return $http.post('/api/signup', $scope.user)
             .success(function (data, status, headers, config) {
                 $location.path('/login');
             })
             .error(function (data, status, headers, config, err) {
-                console.log(err);
                 $scope.error = err;
             });
         }
