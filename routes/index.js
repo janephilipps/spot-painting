@@ -35,10 +35,10 @@ require('../config/passport')(passport);
     });
 
     app.get('/api/paintings/:id', function (req, res) {
-      Painting.find( { _id: req.params.id })
+      Painting.findOne( { _id: req.params.id })
         .populate('user')
         .then(function (painting) {
-          painting[0].painting.forEach(function(colorStr,id,arr){
+          painting.painting.forEach(function(colorStr,id,arr){
             arr[id] = colorStr.split(",");
           });
           res.json(painting);

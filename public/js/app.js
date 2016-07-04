@@ -29,6 +29,12 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
     };
   });
 
+  app.directive('singlePainting', function() {
+    return {
+      templateUrl: 'views/partials/singlePainting.html'
+    };
+  });
+
   app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
       $routeProvider
         .when('/home', {
