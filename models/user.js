@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 
 var userSchema = mongoose.Schema({
     email : {type: String},
-    passwordHash : {type: String}
+    passwordHash : {type: String},
+    username: {type: String}
 });
 
 userSchema.methods.generateHash = function (password) {
@@ -18,7 +19,7 @@ userSchema.methods.isValidPassword = function (password) {
 userSchema.methods.safeUser = function () {
     return {
       _id: this._id,
-      email: this.email
+      username: this.username
     };
 }
 

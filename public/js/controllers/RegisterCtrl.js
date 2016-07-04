@@ -4,7 +4,9 @@ angular.module('RegisterCtrl', []).controller('RegisterController', ['$rootScope
 
     $scope.register = function () {
 
-        if ($scope.user.password !== $scope.user.confirmPassword) {
+        if (!$scope.user.email || !$scope.user.username || !$scope.user.password) {
+            // TODO: Handle the error.
+        } else if ($scope.user.password !== $scope.user.confirmPassword) {
             // TODO: Handle the error.
         } else {
             return $http.post('/api/signup', $scope.user)

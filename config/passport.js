@@ -5,21 +5,29 @@ var User = require('../models/user');
 module.exports = function (passport) {
     passport.use('local-signup', new LocalStrategy(
         {
-            usernameField: 'email',
-            passwordField: 'password'
+            passReqToCallback: true
         },
-        function (email, password, done) {
-            var newUser;
+        // LocalStrategy requires 4 params here, but we are
+        // getting everything we need from `req`, so 2 are unused.
+        function (req, unusedUser, unusedPassword, done) {
+            var newUser,
+                email = req.body.email,
+                username = req.body.username,
+                password = req.body.password;
 
-            User.findOne({ email: email }, function (err, user) {
+            if (!email || !username || !password) {
+                return done(null, false);
+            }
+
+            User.count({$or: [{email: email}, {username: username}]}, function (err, count) {
                 if (err) {
                     done(err);
-                }
-                if (user) {
+                } else if (count > 0) {
                     done(null, false);
                 } else {
                     newUser = new User();
                     newUser.email = email;
+                    newUser.username = username;
                     newUser.passwordHash = newUser.generateHash(password);
                     newUser.save(function (err) {
                         if (err) {
@@ -35,11 +43,11 @@ module.exports = function (passport) {
 
     passport.use('local-login', new LocalStrategy(
         {
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password'
         },
-        function (email, password, done) {
-            User.findOne({ email: email }, function (err, user) {
+        function (username, password, done) {
+            User.findOne({$or: [{email: username}, {username: username}]}, function (err, user) {
                 if (err) {
                     done(err);
                 }
