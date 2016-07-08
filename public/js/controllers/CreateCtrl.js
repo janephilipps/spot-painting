@@ -175,7 +175,7 @@ angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '
     if (!$scope.painting.title) {
       $scope.message = 'Please title your work!';
     } else if (!$rootScope.authenticatedUser) {
-      $scope.message = 'Please sign up or log in!';
+      $scope.message = 'Please sign up or log in to save your work!';
     } else {
       var newPaintingRequest = {
         painting: $scope.painting,
