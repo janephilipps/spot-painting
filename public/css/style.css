@@ -156,3 +156,28 @@ a:hover {
     display: block;
   }
 }
+
+div.modal-background {
+  background-color: rgba( 0, 0, 0, 0.8 ) ;
+  bottom: 0px ;
+  left: 0px ;
+  position: fixed ;
+  right: 0px ;
+  top: 0px ;
+}
+
+div.modal-background.ng-hide {
+  background-color: rgba( 0, 0, 0, 0 );
+}
+
+div.modal-background > .modal-window {
+  background-color: #FFF;
+  box-sizing: border-box ;
+  -moz-box-sizing: border-box ;
+  padding: 20px 20px 20px 20px ;
+  position: fixed ;
+  left: 50% ;
+  margin-left: -200px ;
+  top: 200px ;
+  width: 400px ;
+}

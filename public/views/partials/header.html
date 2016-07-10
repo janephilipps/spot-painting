@@ -10,10 +10,41 @@
       <li><a href="#/paintings">Gallery</a></li>
       <li><a href="#/about">About</a></li>
       <li><a href="#/contact">Contact</a></li>
-      <li><a href="#/signup" ng-hide="authenticated">Sign Up</a></li>
-      <li><a href="#/login" ng-hide="authenticated">Log In</a></li>
+      <li><a ng-hide="authenticated" ng-click="showRegister()">Sign Up</a></li>
+      <li><a ng-hide="authenticated" ng-click="showLogin()">Log In</a></li>
       <li><a href="#/profile" ng-show="authenticated">Profile</a></li>
-      <li><a style="cursor:pointer;" ng-click="logout()" ng-show="authenticated">Logout</a></li>
+      <li><a style="cursor:pointer;" ng-click="logout()" ng-show="authenticated">Logout as {{authenticatedUser.username}}</a></li>
     </ul>
+
+    <!-- Modal -->
+    <div class="modal-background" ng-show="currentModal" ng-click="closeModal()">
+      <div class="modal-window" ng-click="$event.stopPropagation()">
+        <span ng-click="closeModal()">x</span>
+        <div ng-switch="currentModal">
+          <div ng-switch-when="login">
+            <h1>Log In</h1>
+            <span>or <a ng-click="showRegister()">Sign up</a></span>
+            <form ng-submit="login()">
+                <input ng-model="user.username" type="text" placeholder="username or email">
+                <input ng-model="user.password" type="password" placeholder="password">
+                <input type="submit" value="Let's go!">
+            </form>
+            <br />
+          </div>
+          <div ng-switch-when="register">
+            <h1>Sign Up</h1>
+            <span>or <a ng-click="showLogin()">Log in</a></span>
+            <form ng-submit="register()">
+                <input ng-model="user.email" type="text" placeholder="email">
+                <input ng-model="user.username" type="text" placeholder="username">
+                <input ng-model="user.password" type="password" placeholder="password">
+                <input ng-model="user.confirmPassword" type="password" placeholder="confirm password">
+                <input type="submit" value="Let's go!">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </nav>

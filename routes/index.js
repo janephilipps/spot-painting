@@ -46,7 +46,6 @@ require('../config/passport')(passport);
     });
 
     app.post('/api/signup', passport.authenticate('local-signup'), function (req, res) {
-      console.log(req.user);
       res.send(req.user);
     });
 

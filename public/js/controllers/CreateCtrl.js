@@ -1,14 +1,5 @@
 angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
 
-  $scope.painting = {
-    rows: 15,
-    columns: 25,
-    colorNumber: 3,
-    colors: {},
-    title: '',
-    painting: []
-  };
-
   $scope.cssColors = [
     'aliceblue',
     'antiquewhite',
@@ -165,11 +156,13 @@ angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '
       rows: 15,
       columns: 25,
       colorNumber: 3,
-      colors: {},
+      colors: ['black', 'black', 'black'],
       title: '',
       painting: []
     };
   };
+
+  $scope.reset();
 
   $scope.createPainting = function () {
     if (!$scope.painting.title) {
