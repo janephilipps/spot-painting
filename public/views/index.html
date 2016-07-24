@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jane Philipps and David Ross">
+    <meta name="description" content="Spot Painting, inspired by the artist Damien Hirst, is a web app that lets you generate spot paintings and share them with your friends.">
     <title>Spot Painting</title>
-    <!-- CSS (load bootstrap from a CDN) -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <!-- LOAD ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
@@ -19,6 +19,17 @@
     <script src="js/controllers/HeaderCtrl.js"></script>
     <script src="js/controllers/ProfileCtrl.js"></script>
 
+    <!-- Google Analytics Tracking Code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44446737-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
     <base href="/">
 
   </head>
