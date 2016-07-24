@@ -21,8 +21,8 @@ angular.module('HomeCtrl', []).controller('HomeController', ['$rootScope', '$sco
     var colors = $scope.painting.colors;
     var arrColors = [];
     for (var key in colors) {
-        var color = colors[key];
-        arrColors.push(color);
+      var color = colors[key];
+      arrColors.push(color);
     }
 
     var r = $scope.painting.rows,

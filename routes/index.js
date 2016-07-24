@@ -4,7 +4,6 @@ var passport = require('passport');
 
 require('../config/passport')(passport);
 
-
   module.exports = function (app) {
 
     app.post('/api/paintings', function (req, res) {
