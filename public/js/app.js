@@ -1,4 +1,4 @@
-var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'HeaderCtrl', 'ProfileCtrl']);
+var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'HeaderCtrl', 'ProfileCtrl', 'Auth']);
 
   app.filter('range', function () {
     return function (input, total) {

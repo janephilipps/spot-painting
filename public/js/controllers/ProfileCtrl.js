@@ -1,9 +1,9 @@
-angular.module('ProfileCtrl', []).controller('ProfileController', ['$rootScope', '$scope', '$http', '$location', '$routeParams', function($rootScope, $scope, $http, $location, $routeParams) {
+angular.module('ProfileCtrl', []).controller('ProfileController', ['AuthService', '$scope', '$http', '$location', '$routeParams', function(AuthService, $scope, $http, $location, $routeParams) {
 
   var profileUserId = $routeParams.id;
   if (!profileUserId) {
-    if ($rootScope.authenticatedUser) {
-      profileUserId = $rootScope.authenticatedUser._id;
+    if (AuthService.isLoggedIn()) {
+      profileUserId = AuthService.getLoggedInUser()._id;
     } else {
       $location.path('/login');
     }
@@ -21,8 +21,8 @@ angular.module('ProfileCtrl', []).controller('ProfileController', ['$rootScope',
 
   $scope.isSameUser = function () {
     return $scope.profileUser &&
-           $rootScope.authenticatedUser &&
-           ($scope.profileUser._id === $rootScope.authenticatedUser._id);
+           AuthService.isLoggedIn() &&
+           ($scope.profileUser._id === AuthService.getLoggedInUser()._id);
   };
 
 }]);

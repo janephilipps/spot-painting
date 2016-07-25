@@ -10,10 +10,10 @@
       <li><a href="#/paintings">Gallery</a></li>
       <li><a href="#/about">About</a></li>
       <li><a href="#/contact">Contact</a></li>
-      <li><a ng-hide="authenticated" ng-click="showRegister()">Sign Up</a></li>
-      <li><a ng-hide="authenticated" ng-click="showLogin()">Log In</a></li>
-      <li><a href="#/profile" ng-show="authenticated">Profile</a></li>
-      <li><a style="cursor:pointer;" ng-click="logout()" ng-show="authenticated">Logout as {{authenticatedUser.username}}</a></li>
+      <li><a ng-hide="isLoggedIn()" ng-click="showRegister()">Sign Up</a></li>
+      <li><a ng-hide="isLoggedIn()" ng-click="showLogin()">Log In</a></li>
+      <li><a href="#/profile" ng-show="isLoggedIn()">Profile</a></li>
+      <li><a style="cursor:pointer;" ng-click="logout()" ng-show="isLoggedIn()">Logout as {{getLoggedInUser().username}}</a></li>
     </ul>
 
     <!-- Modal -->

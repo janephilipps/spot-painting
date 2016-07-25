@@ -1,8 +1,7 @@
-angular.module('HeaderCtrl', []).controller('HeaderController', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
+angular.module('HeaderCtrl', []).controller('HeaderController', ['$scope', '$http', '$location', 'AuthService', function($scope, $http, $location, AuthService) {
 
   $scope.logout = function () {
-    $rootScope.authenticated = false;
-    $rootScope.authenticatedUser = null;
+    AuthService.logout();
     $location.path('/login');
   }
 
@@ -26,33 +25,23 @@ angular.module('HeaderCtrl', []).controller('HeaderController', ['$rootScope', '
   };
 
   $scope.login = function () {
-    $http.post('/api/login', $scope.user)
-      .success(function (user) {
-        $scope.closeModal();
-        $rootScope.authenticated = true;
-        $rootScope.authenticatedUser = user;
-      })
-      .error(function (err) {
-      });
+    AuthService.login($scope.user, function () {
+      $scope.closeModal();
+    });
   };
 
-  $scope.register = function () {
+  $scope.isLoggedIn = function () {
+    return AuthService.isLoggedIn();
+  };
 
-    if (!$scope.user.email || !$scope.user.username || !$scope.user.password) {
-      // TODO: Handle the error.
-    } else if ($scope.user.password !== $scope.user.confirmPassword) {
-      // TODO: Handle the error.
-    } else {
-      return $http.post('/api/signup', $scope.user)
-      .success(function (data, status, headers, config) {
-        $scope.closeModal();
-        $rootScope.authenticated = true;
-        $rootScope.authenticatedUser = data;
-      })
-      .error(function (data, status, headers, config, err) {
-        $scope.error = err;
-      });
-    }
+  $scope.getLoggedInUser = function () {
+    return AuthService.getLoggedInUser();
+  }
+
+  $scope.register = function () {
+    AuthService.register($scope.user, function () {
+      $scope.closeModal();
+    });
   };
 
 }]);

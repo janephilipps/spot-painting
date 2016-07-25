@@ -1,4 +1,4 @@
-angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '$scope', '$http', '$location', function($rootScope, $scope, $http, $location) {
+angular.module('CreateCtrl', []).controller('CreateController', ['AuthService', '$scope', '$http', '$location', function(AuthService, $scope, $http, $location) {
 
   $scope.cssColors = [
     'aliceblue',
@@ -167,12 +167,12 @@ angular.module('CreateCtrl', []).controller('CreateController', ['$rootScope', '
   $scope.createPainting = function () {
     if (!$scope.painting.title) {
       $scope.message = 'Please title your work!';
-    } else if (!$rootScope.authenticatedUser) {
+    } else if (!AuthService.isLoggedIn()) {
       $scope.message = 'Please sign up or log in to save your work!';
     } else {
       var newPaintingRequest = {
         painting: $scope.painting,
-        user: $rootScope.authenticatedUser
+        user: AuthService.getLoggedInUser()
       }
       $http.post('/api/paintings', newPaintingRequest)
       .success(function (id) {
