@@ -81,7 +81,6 @@ a:hover {
 }
 
 .footer {
-  background-color: white;
   color: black;
   position: absolute;
   bottom: 0;
@@ -157,6 +156,8 @@ a:hover {
   }
 }
 
+/* MODAL STYLES */
+
 div.modal-background {
   background-color: rgba( 0, 0, 0, 0.8 ) ;
   bottom: 0px ;
@@ -180,4 +181,27 @@ div.modal-background > .modal-window {
   margin-left: -200px ;
   top: 200px ;
   width: 400px ;
+}
+
+.modal-window form input {
+  display: block;
+  margin: 15px auto;
+  padding: 5px;
+  border: 2px solid #000;
+}
+
+.modal-window #login form input:nth-child(3),
+.modal-window #signup form input:nth-child(5) {
+  background-color: #fff;
+}
+
+.modal-window #login form input:nth-child(3):hover,
+.modal-window #signup form input:nth-child(5):hover {
+  background-color: dodgerblue;
+  border-color: orangered;
+  color: #fff;
+}
+
+.modal-window > span {
+  float: right;
 }

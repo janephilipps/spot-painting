@@ -21,7 +21,7 @@
       <div class="modal-window" ng-click="$event.stopPropagation()">
         <span ng-click="closeModal()">x</span>
         <div ng-switch="currentModal">
-          <div ng-switch-when="login">
+          <div id="login" ng-switch-when="login">
             <h1>Log In</h1>
             <span>or <a ng-click="showRegister()">Sign up</a></span>
             <form ng-submit="login()">
@@ -31,7 +31,7 @@
             </form>
             <br />
           </div>
-          <div ng-switch-when="register">
+          <div id="signup" ng-switch-when="register">
             <h1>Sign Up</h1>
             <span>or <a ng-click="showLogin()">Log in</a></span>
             <form ng-submit="register()">
