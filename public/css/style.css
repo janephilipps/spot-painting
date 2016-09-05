@@ -204,6 +204,11 @@ div.modal-background > .modal-window {
 
 .modal-window > span {
   float: right;
+  padding: 15px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 }
 
 #login > div,
