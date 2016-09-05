@@ -1,5 +1,6 @@
 // Require modules
 var express = require("express");
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
@@ -35,9 +36,23 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.use(express.static(__dirname + '/public'));
 
+app.use(session({
+  secret: "I love Jane",
+  resave: false,
+  saveUninitialized: true,
+  name: "sessionId"
+}));
+
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+  console.log(req.session);
+  console.log(req.sessionID);
+  next();
+});
 
 require('./routes')(app);
 

@@ -52,6 +52,15 @@ require('../config/passport')(passport);
       res.send(req.user);
     });
 
+    app.delete('/api/logout', function (req, res) {
+      req.logout();
+      res.send({});
+    });
+
+    app.get('/api/loggedInUser', function (req, res) {
+      res.send(req.user);
+    });
+
     app.get('/api/users/:id', function (req, res) {
       User.findOne( { _id: req.params.id })
         .then(function (user) {

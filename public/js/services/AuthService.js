@@ -8,6 +8,14 @@ angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
     _loggedInUser = loggedInUser;
   };
 
+  var _unsetLoggedInUser = function () {
+    _loggedInUser = null;
+  };
+
+  var _getLoggedInUser = function () {
+    return _loggedInUser;
+  }
+
   service.login = function (user, onSuccess, onError) {
     $http.post('/api/login', user)
       .success(function (loggedInUser) {
@@ -37,19 +45,28 @@ angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
   };
 
   service.isLoggedIn = function () {
-    return _loggedInUser != null;
+    return _getLoggedInUser() != null;
   };
 
   service.getLoggedInUser = function () {
-    return _loggedInUser;
+    return _getLoggedInUser();
   };
 
   service.logout = function () {
-    _loggedInUser = null;
+    $http.delete('api/logout')
+      .success(function () {
+        _unsetLoggedInUser();
+      });
   }
 
-  service.logout();
-
+  $http.get('/api/loggedInUser')
+    .success(function (user) {
+      if (user) {
+        _setLoggedInUser(user);
+      } else {
+        _unsetLoggedInUser();
+      }
+    });
   return service;
 
 }]);
