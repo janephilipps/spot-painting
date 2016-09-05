@@ -1,11 +1,11 @@
-angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
+angular.module('Auth', ['ngStorage']).factory('AuthService', ['$http', '$sessionStorage', function($http, $sessionStorage) {
 
   var service = {};
 
-  var _loggedInUser;
+  var loggedInUserKey = 'loggedInUser';
 
   var _setLoggedInUser = function (loggedInUser) {
-    _loggedInUser = loggedInUser;
+    $sessionStorage[loggedInUserKey] = loggedInUser;
   };
 
   service.login = function (user, onSuccess, onError) {
@@ -37,18 +37,16 @@ angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
   };
 
   service.isLoggedIn = function () {
-    return _loggedInUser != null;
+    return service.getLoggedInUser() != null;
   };
 
   service.getLoggedInUser = function () {
-    return _loggedInUser;
+    return $sessionStorage[loggedInUserKey];
   };
 
   service.logout = function () {
-    _loggedInUser = null;
+    delete $sessionStorage[loggedInUserKey];
   }
-
-  service.logout();
 
   return service;
 
