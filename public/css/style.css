@@ -31,11 +31,13 @@ p {
 
 a {
   color: dodgerblue;
+  cursor: pointer;
 }
 
 a:hover {
   color: orangered;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .contact {
