@@ -205,3 +205,8 @@ div.modal-background > .modal-window {
 .modal-window > span {
   float: right;
 }
+
+#login > div,
+#signup > div {
+  text-align: center;
+}

@@ -22,8 +22,10 @@
         <span ng-click="closeModal()">x</span>
         <div ng-switch="currentModal">
           <div id="login" ng-switch-when="login">
-            <h1>Log In</h1>
-            <span>or <a ng-click="showRegister()">Sign up</a></span>
+            <div>
+              <h1>Log In</h1>
+              <span>or <a ng-click="showRegister()">Sign up</a></span>
+            </div>
             <form ng-submit="login()">
               <input ng-model="user.username" type="text" placeholder="username or email">
               <input ng-model="user.password" type="password" placeholder="password">
@@ -32,8 +34,10 @@
             <br />
           </div>
           <div id="signup" ng-switch-when="register">
-            <h1>Sign Up</h1>
-            <span>or <a ng-click="showLogin()">Log in</a></span>
+            <div>
+              <h1>Sign Up</h1>
+              <span>or <a ng-click="showLogin()">Log in</a></span>
+            </div>
             <form ng-submit="register()">
               <input ng-model="user.email" type="text" placeholder="email">
               <input ng-model="user.username" type="text" placeholder="username">
