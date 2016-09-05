@@ -131,6 +131,13 @@ a:hover {
 
 /* MEDIA QUERIES */
 
+@media handheld, screen and (max-width: 375px) {
+  /* This ensures that the footer does not show inside of the modal on mobile */
+  .footer {
+    position: static;
+  }
+}
+
 @media handheld, screen and (min-width: 320px) and (max-width: 1024px) {
 
   body {
