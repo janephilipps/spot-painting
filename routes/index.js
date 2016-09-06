@@ -28,8 +28,14 @@ require('../config/passport')(passport);
         findParam = {user: req.query.user};
       }
 
+      var offset  = req.query.offset || 0;
+      var limit = Math.min(20, req.query.limit) || 5;
+
       Painting.find(findParam)
         .populate('user')
+        .sort({_id: 1})
+        .skip(offset)
+        .limit(limit)
         .then(function (paintings) {
           // Paintings are saved in DB weirdly, so we need to do this to fix them and make accessible
           paintings.forEach(function(painting){
