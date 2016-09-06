@@ -164,22 +164,30 @@ angular.module('CreateCtrl', []).controller('CreateController', ['AuthService', 
 
   $scope.reset();
 
+  var pleaseSignUp = function () {
+    $scope.message = 'Please sign up or log in to save your work!';
+  };
+
   $scope.createPainting = function () {
     if (!$scope.painting.title) {
       $scope.message = 'Please title your work!';
     } else if (!AuthService.isLoggedIn()) {
-      $scope.message = 'Please sign up or log in to save your work!';
+      pleaseSignUp();
     } else {
       var newPaintingRequest = {
-        painting: $scope.painting,
-        user: AuthService.getLoggedInUser()
+        painting: $scope.painting
       }
       $http.post('/api/paintings', newPaintingRequest)
       .success(function (id) {
         var path = '/paintings/' + id;
         $location.path(path);
       })
-      .error(function (data) {
+      .error(function (data, code) {
+        if (code === 401) {
+          pleaseSignUp();
+        } else {
+          $scope.message = data;
+        }
       });
     }
   };

@@ -48,12 +48,6 @@ app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function (req, res, next) {
-  console.log(req.session);
-  console.log(req.sessionID);
-  next();
-});
-
 require('./routes')(app);
 
 app.listen(port);

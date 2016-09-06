@@ -6,9 +6,17 @@ require('../config/passport')(passport);
 
   module.exports = function (app) {
 
-    app.post('/api/paintings', function (req, res) {
+    var requireLoggedIn = function (req, res, next) {
+      if (!req.user) {
+        res.send(401, 'Must be logged in');
+      } else {
+        return next();
+      }
+    };
+
+    app.post('/api/paintings', requireLoggedIn, function (req, res) {
       var painting = req.body.painting;
-      painting.user = req.body.user._id;
+      painting.user = req.user._id;
       Painting.create(painting, function (err, painting) {
         res.json(painting._id);
       });
@@ -71,4 +79,5 @@ require('../config/passport')(passport);
     app.get('*', function (req, res) {
       res.sendfile('./public/views/index.html');
     });
+
   };
