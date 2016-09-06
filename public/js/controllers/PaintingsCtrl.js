@@ -1,8 +1,48 @@
-angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
 
-  $http.get('/api/paintings')
-    .success(function (paintings) {
-      $scope.paintings = paintings;
+  $scope.pageSize = 5;
+
+  $scope.currentPage = +$location.search().page || 1;
+
+  $scope.offset = function () {
+    return ($scope.currentPage - 1) * $scope.pageSize;
+  };
+
+  $scope.previousPage = function () {
+    return $scope.currentPage - 1;
+  };
+
+  $scope.goPreviousPage = function () {
+    $location.search('page', $scope.previousPage());
+  }
+
+  $scope.nextPage = function () {
+    return $scope.currentPage + 1;
+  }
+
+  $scope.goNextPage = function () {
+    $location.search('page', $scope.nextPage());
+  }
+
+  $scope.maxPage = function () {
+    return Math.ceil($scope.total / $scope.pageSize);
+  }
+
+  $scope.hasNextPage = function () {
+    return $scope.currentPage < $scope.maxPage();
+  };
+
+  $scope.hasPreviousPage = function () {
+    return $scope.currentPage > 1;
+  };
+
+  $http.get(`/api/paintings?limit=${$scope.pageSize}&offset=${$scope.offset()}`)
+    .success(function (repsonse) {
+      $scope.paintings = repsonse.paintings;
+      $scope.total = repsonse.total;
+      if ($scope.currentPage > $scope.maxPage()) {
+        $location.search('page', 1);
+      }
       $timeout(function() {
         $scope.renderCanvas();
       });

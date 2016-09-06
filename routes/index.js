@@ -43,8 +43,21 @@ require('../config/passport')(passport);
               arr[id] = colorStr.split(",");
             });
           });
-          res.json(paintings);
+
+          return paintings;
         })
+        .then(function (paintings) {
+          Painting.count(findParam)
+            .then(function (total) {
+              res.json({
+                limit: limit,
+                offset: offset,
+                count: paintings.length,
+                total: total,
+                paintings: paintings
+              });
+            });
+        });
     });
 
     app.get('/api/paintings/:id', function (req, res) {

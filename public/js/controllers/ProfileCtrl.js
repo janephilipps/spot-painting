@@ -15,8 +15,8 @@ angular.module('ProfileCtrl', []).controller('ProfileController', ['AuthService'
     });
 
   $http.get('/api/paintings?user=' + profileUserId)
-    .success(function (paintings) {
-      $scope.paintings = paintings;
+    .success(function (response) {
+      $scope.paintings = response.paintings;
       $timeout(function() {
         $scope.renderCanvas();
       });

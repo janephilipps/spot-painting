@@ -1,5 +1,17 @@
-<div id="gallery" ng-repeat="painting in paintings track by $index">
-  <div single-painting></div>
-  <br />
-  <br />
+<div id="gallery">
+  <ul>
+    <li ng-show="hasPreviousPage()">
+      <a ng-click="goPreviousPage()">Previous: {{previousPage()}}</a>
+    </li>
+    <li>Current: {{currentPage}}</li>
+    <li ng-show="hasNextPage()">
+      <a ng-click="goNextPage()">Next: {{nextPage()}}</a>
+    </li>
+  </ul>
+
+  <div ng-repeat="painting in paintings">
+    <div single-painting></div>
+    <br />
+    <br />
+  </div>
 </div>
