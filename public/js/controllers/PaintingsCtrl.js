@@ -1,6 +1,6 @@
 angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
 
-  $scope.pageSize = 5;
+  $scope.pageSize = Math.min(20, $location.search().pageSize) || 5;
 
   $scope.currentPage = +$location.search().page || 1;
 
