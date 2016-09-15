@@ -21,6 +21,7 @@
     "body-parser": "^1.12.4",
     "express": "^4.12.4",
     "express-session": "^1.14.1",
+    "express-sslify": "^1.1.0",
     "method-override": "^2.3.3",
     "mongodb": "^2.0.33",
     "mongoose": "4.0.4",

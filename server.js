@@ -6,6 +6,7 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var env = process.env;
 var favicon = require('serve-favicon');
+var enforce = require('express-sslify');
 var passport = require('passport');
 
 if (env.MONGOLAB_URI) {
@@ -20,6 +21,10 @@ var routes = require('./routes/index');
 
 var app = express();
 
+// Force HTTPS
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+// Set port
 var port = process.env.PORT || 3000;
 
 // MIDDLEWARE
