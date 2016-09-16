@@ -8,6 +8,7 @@ var favicon = require('serve-favicon');
 var enforce = require('express-sslify');
 var passport = require('passport');
 var isProduction = process.env.NODE_ENV === 'production';
+var helmet = require('helmet');
 
 if (isProduction) {
   console.log('Connecting to prod mongo.');
@@ -23,6 +24,7 @@ if (isProduction) {
 var routes = require('./routes/index');
 
 var app = express();
+app.use(helmet());
 
 if (isProduction) {
   // Force HTTPS
