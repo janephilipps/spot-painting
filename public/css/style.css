@@ -12,6 +12,7 @@ body {
 .center {
   text-align: center;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .simple-form {

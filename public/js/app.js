@@ -1,4 +1,4 @@
-var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'HeaderCtrl', 'ProfileCtrl', 'Auth']);
+var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl', 'CanvasCtrl', 'CreateCtrl', 'PaintingsCtrl', 'PaintingCtrl', 'HeaderCtrl', 'ProfileCtrl', 'Auth']);
 
   app.filter('range', function () {
     return function (input, total) {
@@ -58,6 +58,10 @@ var app = angular.module('spotPaintingApp', ['ngRoute', 'ngResource', 'HomeCtrl'
         .when('/paintings/:id', {
           templateUrl: '/views/painting.html',
           controller: 'PaintingController'
+        })
+        .when('/paintings/:id/canvas', {
+          templateUrl: '/views/canvas.html',
+          controller: 'CanvasController'
         })
         .when('/profile', {
           templateUrl: '/views/profile.html',
