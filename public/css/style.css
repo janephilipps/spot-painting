@@ -121,6 +121,11 @@ a:hover {
   display: block;
 }
 
+#gallery ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 #painting {
   height: 25px;
   width: 25px;
