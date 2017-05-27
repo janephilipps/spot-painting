@@ -14,9 +14,6 @@ angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope',
 
     var paintings = $scope.paintings;
 
-    // debugger;
-
-    console.log(paintings);
     var canvases = document.getElementsByClassName('painting');
 
     for (var k = 0; k < paintings.length; k++) {
