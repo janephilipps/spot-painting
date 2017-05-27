@@ -37,9 +37,9 @@ angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope',
   };
 
   $http.get(`/api/paintings?limit=${$scope.pageSize}&offset=${$scope.offset()}`)
-    .success(function (repsonse) {
-      $scope.paintings = repsonse.paintings;
-      $scope.total = repsonse.total;
+    .success(function (response) {
+      $scope.paintings = response.paintings;
+      $scope.total = response.total;
       if ($scope.currentPage > $scope.maxPage()) {
         $location.search('page', 1);
       }
