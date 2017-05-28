@@ -8,10 +8,11 @@ var favicon = require('serve-favicon');
 var enforce = require('express-sslify');
 var passport = require('passport');
 var isProduction = process.env.NODE_ENV === 'production';
+var isStaging = process.env.NODE_ENV === 'staging';
 var isHandshake = process.env.NODE_ENV === 'handshake';
 var helmet = require('helmet');
 
-if (isProduction) {
+if (isProduction || isStaging) {
   console.log('Connecting to prod mongo.');
   if (!process.env.MONGOLAB_URI) {
     throw new Error('MONGOLAB_URI must be set.');
@@ -59,7 +60,7 @@ if (!isHandshake) {
     }
   };
 
-  if (isProduction) {
+  if (isProduction || isStaging) {
     if (!process.env.SPOT_PAINTING_SECRET) {
       throw new Error('SPOT_PAINTING_SECRET must be set.');
     }
