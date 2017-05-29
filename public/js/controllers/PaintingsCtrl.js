@@ -1,6 +1,4 @@
-angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$location', '$timeout', '$route', function($scope, $http, $location, $timeout, $route) {
-
-  $route.reload();
+angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
 
   $scope.pageSize = Math.min(20, $location.search().pageSize) || 5;
 
