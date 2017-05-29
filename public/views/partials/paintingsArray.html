@@ -1,4 +1,4 @@
-<div id="gallery">
+<div id="gallery" ng-init="getPaintings()">
   <ul>
     <li ng-show="hasPreviousPage()">
       <a ng-click="goPreviousPage()">Previous: {{previousPage()}}</a>

@@ -1,4 +1,6 @@
-angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$location', '$timeout', function($scope, $http, $location, $timeout) {
+angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope', '$http', '$location', '$timeout', '$route', function($scope, $http, $location, $timeout, $route) {
+
+  $route.reload();
 
   $scope.pageSize = Math.min(20, $location.search().pageSize) || 5;
 
@@ -36,19 +38,21 @@ angular.module('PaintingsCtrl', []).controller('PaintingsController', ['$scope',
     return $scope.currentPage > 1;
   };
 
-  $http.get(`/api/paintings?limit=${$scope.pageSize}&offset=${$scope.offset()}`)
-    .success(function (response) {
-      $scope.paintings = response.paintings;
-      $scope.total = response.total;
-      if ($scope.currentPage > $scope.maxPage()) {
-        $location.search('page', 1);
-      }
-      $timeout(function() {
-        $scope.renderCanvas();
+  $scope.getPaintings = function() {
+    $http.get(`/api/paintings?limit=${$scope.pageSize}&offset=${$scope.offset()}`)
+      .success(function (response) {
+        $scope.paintings = response.paintings;
+        $scope.total = response.total;
+        if ($scope.currentPage > $scope.maxPage()) {
+          $location.search('page', 1);
+        }
+        $timeout(function() {
+          $scope.renderCanvas();
+        });
+      })
+      .error(function (paintings) {
       });
-    })
-    .error(function (paintings) {
-    });
+  };
 
   $scope.renderCanvas = function() {
 
