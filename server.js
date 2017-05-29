@@ -34,6 +34,9 @@ if (!isHandshake) {
   if (isProduction) {
     // Force HTTPS
     app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+    // Trust Heroku's proxy header.
+    app.set('trust proxy', 1);
   }
 
   // MIDDLEWARE
