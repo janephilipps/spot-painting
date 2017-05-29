@@ -64,13 +64,24 @@ if (!isHandshake) {
     if (!process.env.SPOT_PAINTING_SECRET) {
       throw new Error('SPOT_PAINTING_SECRET must be set.');
     }
-    sessionConfig.secret = process.env.SPOT_PAINTING_SECRET;
-    sessionConfig.cookie.secure = true;
+
     sessionConfig.cookie.httpOnly = true;
-    sessionConfig.cookie.domain = 'www.spot-painting.com';
+    sessionConfig.secret = process.env.SPOT_PAINTING_SECRET;
+
+    if (isProduction) {
+      sessionConfig.cookie.secure = true;
+      sessionConfig.cookie.domain = 'www.spot-painting.com';
+    } else if (isStaging) {
+      sessionConfig.cookie.domain = 'localhost';
+    }
   }
 
   app.use(session(sessionConfig));
+
+  app.use(function printSession(req, res, next) {
+    console.log('req.session', req.session);
+    return next();
+  });
 
   app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
