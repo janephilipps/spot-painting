@@ -42,7 +42,7 @@ angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
 
   service.register = function (user, onSuccess, onError) {
     var errorMessage = _validateUser(user);
-    if (errorMessage)
+    if (errorMessage) {
       onError && onError(errorMessage);
     } else {
       return $http.post('/api/signup', user)
