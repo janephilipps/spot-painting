@@ -33,7 +33,7 @@ require('../config/passport')(passport);
 
       Painting.find(findParam)
         .populate('user')
-        .sort({_id: 1})
+        .sort({_id: -1})
         .skip(offset)
         .limit(limit)
         .then(function (paintings) {
