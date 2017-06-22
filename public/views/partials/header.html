@@ -25,6 +25,9 @@
             <div>
               <h1>Log In</h1>
               <span>or <a ng-click="showRegister()">Sign up</a></span>
+              <div class="alert" ng-show="getMessage()">
+                {{getMessage()}}
+              </div>
             </div>
             <form ng-submit="login()">
               <input ng-model="user.username" type="text" placeholder="username or email">
@@ -37,6 +40,9 @@
             <div>
               <h1>Sign Up</h1>
               <span>or <a ng-click="showLogin()">Log in</a></span>
+              <div class="alert" ng-show="getMessage()">
+                {{getMessage()}}
+              </div>
             </div>
             <form ng-submit="register()">
               <input ng-model="user.email" type="text" placeholder="email">

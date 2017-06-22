@@ -13,6 +13,7 @@ angular.module('HeaderCtrl', []).controller('HeaderController', ['$scope', '$htt
   };
 
   $scope.closeModal = function () {
+    $scope.message = '';
     $scope.showModal(null);
   };
 
@@ -27,6 +28,8 @@ angular.module('HeaderCtrl', []).controller('HeaderController', ['$scope', '$htt
   $scope.login = function () {
     AuthService.login($scope.user, function () {
       $scope.closeModal();
+    }, function(err) {
+      $scope.message = err;
     });
   };
 
@@ -41,7 +44,13 @@ angular.module('HeaderCtrl', []).controller('HeaderController', ['$scope', '$htt
   $scope.register = function () {
     AuthService.register($scope.user, function () {
       $scope.closeModal();
+    }, function(err) {
+      $scope.message = err;
     });
+  };
+
+  $scope.getMessage = function () {
+    return $scope.message;
   };
 
 }]);

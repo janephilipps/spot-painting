@@ -22,16 +22,28 @@ angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
         _setLoggedInUser(loggedInUser);
         onSuccess && onSuccess(loggedInUser);
       })
-      .error(function (err) {
-        onError && onError(err);
+      .error(function () {
+        var message = 'Incorrect username or password!';
+        onError && onError(message);
       });
   };
 
-  service.register = function (user, onSuccess, onError) {
-   if (!user.email || !user.username || !user.password) {
-      // TODO: Handle the error.
+  var _validateUser = function(user) {
+    if (!user.email) {
+      return 'Please enter an email';
+    } else if (!user.username) {
+      return 'Please enter a username';
+    } else if (!user.password) {
+      return 'Please enter a password';
     } else if (user.password !== user.confirmPassword) {
-      // TODO: Handle the error.
+      return 'Your passwords don\'t match. Try again!';
+    }
+  }
+
+  service.register = function (user, onSuccess, onError) {
+    var errorMessage = _validateUser(user);
+    if (errorMessage)
+      onError && onError(errorMessage);
     } else {
       return $http.post('/api/signup', user)
       .success(function (data, status, headers, config) {
@@ -39,7 +51,9 @@ angular.module('Auth', []).factory('AuthService', ['$http', function($http) {
         onSuccess && onSuccess(data);
       })
       .error(function (data, status, headers, config, err) {
-        onError && onError(err);
+        // TODO: Handle specific errors
+        var message = 'Sorry, there was a problem. Please try again!'
+        onError && onError(message);
       });
     }
   };
