@@ -7,7 +7,7 @@ Spot Painting was built with the MEAN stack: MongoDB, Express, Angular, and Node
 
 
 ### Instructions for renewing SSL certificate
-**Next renewal: 08/04/17**
+**Next renewal: 05/30/18**
 
 Note: try `certbot renew` and update instructions if it works
 
@@ -22,4 +22,6 @@ Here are the steps to renew it:
 5. Change `HANDSHAKE_PATH` and `HANDSHAKE_RESPONSE` to certbot output
 6. Press enter in certbot interface and ensure certificate creation
 7. `sudo heroku certs:update /etc/letsencrypt/live/www.spot-painting.com/fullchain.pem /etc/letsencrypt/live/www.spot-painting.com/privkey.pem --app spotpainting --confirm spotpainting`
+8. Change `NODE_ENV` back to `production`
+9. Go to `www.spot-painting.com` and check that it's working!
 
