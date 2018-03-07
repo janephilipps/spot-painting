@@ -4,7 +4,7 @@ angular.module('Canvas', []).factory('CanvasService', [function() {
 
   _renderPaintingOnCanvas = function(painting, canvas) {
 
-    var ctx = canvas.getContext('2d');
+    var ctx = canvas[0].getContext('2d');
     ctx.canvas.width = (painting.columns * 25) + ((painting.columns - 1) * 20);
     ctx.canvas.height = (painting.rows * 25) + ((painting.rows - 1) * 20);
     var x = 12.5;
