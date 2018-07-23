@@ -7,7 +7,7 @@ Spot Painting was built with the MEAN stack: MongoDB, Express, Angular, and Node
 
 
 ### Instructions for renewing SSL certificate
-**Next renewal: 05/30/18**
+**Next renewal: 10/20/18**
 
 Note: try `certbot renew` and update instructions if it works
 
