@@ -17,12 +17,12 @@ if (isProduction || isStaging) {
   if (!process.env.MONGOLAB_URI) {
     throw new Error('MONGOLAB_URI must be set.');
   }
-  mongoose.connect(process.env.MONGOLAB_URI);
+  mongoose.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true });
 } else if (isHandshake) {
   console.log('Not connecting to mongo for handshake');
 } else {
   console.log('Connecting to dev mongo');
-  mongoose.connect('mongodb://localhost:27017/spot_painting_db');
+  mongoose.connect('mongodb://localhost:27017/spot_painting_db', { useNewUrlParser: true });
 }
 
 var app = express();
@@ -82,7 +82,6 @@ if (!isHandshake) {
   app.use(session(sessionConfig));
 
   app.use(function printSession(req, res, next) {
-    console.log('req.session', req.session);
     return next();
   });
 
