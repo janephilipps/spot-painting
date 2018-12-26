@@ -1,6 +1,7 @@
 var Painting = require('../models/painting');
 var User = require('../models/user');
 var passport = require('passport');
+var path = require('path');
 
 require('../config/passport')(passport);
 
@@ -96,7 +97,7 @@ require('../config/passport')(passport);
     });
 
     app.get('*', function (req, res) {
-      res.sendfile('./public/views/index.html');
+      res.sendFile(path.join(__dirname, '../public', 'views', 'index.html'));
     });
 
   };
