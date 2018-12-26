@@ -48,7 +48,7 @@ require('../config/passport')(passport);
           return paintings;
         })
         .then(function (paintings) {
-          Painting.count(findParam)
+          Painting.countDocuments(findParam)
             .then(function (total) {
               res.json({
                 limit: limit,
