@@ -12,17 +12,22 @@ var isStaging = process.env.NODE_ENV === 'staging';
 var isHandshake = process.env.NODE_ENV === 'handshake';
 var helmet = require('helmet');
 
+var mongooseOptions = {
+  useNewUrlParser: true,
+  useCreateIndex: true
+};
+
 if (isProduction || isStaging) {
   console.log('Connecting to prod mongo.');
   if (!process.env.MONGOLAB_URI) {
     throw new Error('MONGOLAB_URI must be set.');
   }
-  mongoose.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true });
+  mongoose.connect(process.env.MONGOLAB_URI, mongooseOptions);
 } else if (isHandshake) {
   console.log('Not connecting to mongo for handshake');
 } else {
   console.log('Connecting to dev mongo');
-  mongoose.connect('mongodb://localhost:27017/spot_painting_db', { useNewUrlParser: true });
+  mongoose.connect('mongodb://localhost:27017/spot_painting_db', mongooseOptions);
 }
 
 var app = express();
