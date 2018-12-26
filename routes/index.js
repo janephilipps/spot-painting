@@ -39,9 +39,9 @@ require('../config/passport')(passport);
         .limit(limit)
         .then(function (paintings) {
           // Paintings are saved in DB weirdly, so we need to do this to fix them and make accessible
-          paintings.forEach(function(painting){
-            painting.painting.forEach(function(colorStr,id,arr){
-              arr[id] = colorStr.split(",");
+          paintings.forEach(function (painting) {
+            painting.painting.forEach(function (colorStr, id, arr) {
+              arr[id] = colorStr[0].split(",");
             });
           });
 
@@ -66,7 +66,7 @@ require('../config/passport')(passport);
         .populate('user')
         .then(function (painting) {
           painting.painting.forEach(function(colorStr,id,arr){
-            arr[id] = colorStr.split(",");
+            arr[id] = colorStr[0].split(",");
           });
           res.json(painting);
         })
