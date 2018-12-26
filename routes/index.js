@@ -29,7 +29,7 @@ require('../config/passport')(passport);
         findParam = {user: req.query.user};
       }
 
-      var offset  = req.query.offset || 0;
+      var offset  = parseInt(req.query.offset) || 0;
       var limit = Math.min(20, req.query.limit) || 5;
 
       Painting.find(findParam)
