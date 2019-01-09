@@ -25,6 +25,17 @@ angular.module('Canvas', []).factory('CanvasService', [function() {
       x = 12.5;
       y += 45;
     }
+
+    var canvas = document.getElementById('canvas'),
+        dataUrl = canvas.toDataURL(),
+        image = document.createElement('img');
+        image.src = dataUrl;
+
+    image.style.width = ctx.canvas.width;
+    image.style.height = ctx.canvas.height;
+
+    document.body.appendChild(image);
+
   }
 
   service.renderCanvas = function(painting) {
