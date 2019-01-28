@@ -29,7 +29,7 @@ angular.module('Canvas', []).factory('CanvasService', [function() {
 
   service.renderCanvas = function(painting) {
 
-    var canvas = document.getElementsByTagName('canvas');
+    var canvas = document.getElementsByTagName('canvas')[0];
 
     _renderPaintingOnCanvas(painting, canvas);
 
