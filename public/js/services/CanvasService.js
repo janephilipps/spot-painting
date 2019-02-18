@@ -26,34 +26,18 @@ angular.module('Canvas', []).factory('CanvasService', [function() {
       y += 45;
     }
 
-    var canvas = document.getElementById('canvas'),
-        dataUrl = canvas.toDataURL(),
-        image = document.createElement('img');
-        image.src = dataUrl;
-
-    image.style.width = ctx.canvas.width;
-    image.style.height = ctx.canvas.height;
-
-    document.body.appendChild(image);
+    var dataUrl = canvas.toDataURL();
+    return dataUrl;
 
   }
 
-  service.renderCanvas = function(painting) {
+  service.renderCanvas = function(painting, i) {
 
-    var canvas = document.getElementsByTagName('canvas')[0];
+    var canvas = document.getElementsByTagName('canvas')[i];
 
-    _renderPaintingOnCanvas(painting, canvas);
+    return _renderPaintingOnCanvas(painting, canvas);
 
   };
-
-  service.renderCanvases = function(paintings) {
-
-    var canvases = document.getElementsByTagName('canvas');
-
-    for (var k = 0; k < paintings.length; k++) {
-      _renderPaintingOnCanvas(paintings[k], canvases[k]);
-    }
-  }
 
   return service;
 
