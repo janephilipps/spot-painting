@@ -59,7 +59,9 @@ angular.module('ProfileCtrl', []).controller('ProfileController', ['AuthService'
         $location.search('page', 1);
       }
       $timeout(function() {
-        CanvasService.renderCanvases($scope.paintings);
+        for (var i = 0; i < $scope.paintings.length; i++) {
+          $scope.paintings[i].dataUrl = CanvasService.renderCanvas($scope.paintings[i], i);
+        }
       });
     });
 

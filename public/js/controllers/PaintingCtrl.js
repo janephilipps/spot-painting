@@ -16,7 +16,7 @@ angular.module('PaintingCtrl', []).controller('PaintingController', ['CanvasServ
     .success(function (painting) {
       tweet(document, 'script', 'twitter-wjs');
       $scope.painting = painting;
-      CanvasService.renderCanvas(painting);
+      $scope.painting.dataUrl = CanvasService.renderCanvas(painting, 0);
     })
     .error(function (painting) {
     });
